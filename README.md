@@ -2,8 +2,8 @@
 
 Przykład mojego wykorzystania HomeAssistant w połączeniu ze sterownikiem PLC Beckhoff TwinCat3.
 
-![Home_Assistant](https://user-images.githubusercontent.com/95655881/163258467-d11da611-cf7e-429e-aab8-b52d664e2da1.png)
-![Home_Assistant_0](https://user-images.githubusercontent.com/95655881/163258656-5ebdcfdb-8997-4303-bc1c-706453e5a7fe.png)
+![image](https://user-images.githubusercontent.com/66697668/190927379-a30f26fe-d145-48c9-8f86-1d3df96d8e7a.png)
+![image](https://user-images.githubusercontent.com/66697668/190927398-644c8d7d-266b-47d0-a987-89fd23e7e6ef.png)
 
 
 Wykorzystane integracje:
