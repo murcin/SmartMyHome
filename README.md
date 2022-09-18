@@ -1,4 +1,4 @@
-# SmartMyHome // update 13.04.2022
+# SmartMyHome // update 18.09.2022
 
 Przykład mojego wykorzystania HomeAssistant w połączeniu ze sterownikiem PLC Beckhoff TwinCat3.
 
