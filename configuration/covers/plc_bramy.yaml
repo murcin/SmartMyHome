@@ -13,11 +13,11 @@
       open_cover:
         service: switch.turn_on
         data:
-          entity_id: switch.brama_wjazdowa_otworz
+          entity_id: switch.brama_wjazdowa_sbs
       close_cover:
         service: switch.turn_on
         data:
-          entity_id: switch.brama_wjazdowa_zamknij
+          entity_id: switch.brama_wjazdowa_sbs
       stop_cover:
         service: switch.turn_on
         data:
@@ -42,11 +42,11 @@
       open_cover:
         service: switch.turn_on
         data:
-          entity_id: switch.brama_garazowa_otworz
+          entity_id: switch.brama_garazowa_sbs
       close_cover:
         service: switch.turn_on
         data:
-          entity_id: switch.brama_garazowa_zamknij
+          entity_id: switch.brama_garazowa_sbs
       stop_cover:
         service: switch.turn_on
         data:

@@ -1,0 +1,11 @@
+  text_do_powiedzenia:
+    alias: Text Do Powiedzenia
+    sequence:
+      - service: input_text.set_value
+        data:
+          value: okioki
+        target:
+          entity_id: input_text.tekst_to_powiedzenia
+    mode: single
+    icon: mdi:microphone-message
+    

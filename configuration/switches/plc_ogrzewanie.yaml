@@ -1,6 +1,28 @@
 
-######################## OGRZEWANIE PODŁOGOWE ########################
+ ######################## OBECNOŚC W POSZCZEGÓLNYCH POMIESZCZENIACH ########################
 
 - platform: ads
-  name: Reset minmax temp
-  adsvar: P_BOILER.tminmax_reset
+  name: Ogrzewanie_UsingHomeAssistant
+  adsvar: GVL_Ogrzewanie.bUsingHomeAssistant
+- platform: ads
+  name: Ogrzewanie_Aktywne
+  adsvar: GVL_Ogrzewanie.bOgrzewanieAktywne
+- platform: ads
+  name: Ogrzewanie_SterowanieManualne
+  adsvar: P_Kotlownia.SterowanieManualne
+- platform: ads
+  name: CO_Pompa_Parter
+  adsvar: GVL_Ogrzewanie.CO_Parter_Pompa
+- platform: ads
+  name: CO_Pompa_Pietro
+  adsvar: GVL_Ogrzewanie.CO_Pietro_Pompa
+- platform: ads
+  name: CO_Mieszacz_Parter
+  adsvar: GVL_Ogrzewanie.bMieszacz_CO_P0
+- platform: ads
+  name: CO_Mieszacz_Pietro
+  adsvar: GVL_Ogrzewanie.bMieszacz_CO_P1
+
+- platform: ads
+  name: CWU_Pompa
+  adsvar: GVL_Ogrzewanie.CWU_Pompa

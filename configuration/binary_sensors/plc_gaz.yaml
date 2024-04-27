@@ -3,8 +3,8 @@
 
 - platform: ads
   name: Czujnik gazu impuls
-  adsvar: GVL_Sensors.bGasMeter_imp
+  adsvar: GVL_Gas.bGasMeter_imp
   
 - platform: ads
-  name: Czujnik gazu alarm
-  adsvar: GVL_Sensors.bGasMeter_alarm
+  name: Czujnik gazu wykryto otwarcie
+  adsvar: GVL_Gas.CzujnikOtwarcia_Wykrycie

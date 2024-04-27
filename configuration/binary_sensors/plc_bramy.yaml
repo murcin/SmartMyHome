@@ -2,40 +2,49 @@
 ######################## CZUJNIKI GARAŻ ######################## 
 
 - platform: ads
+  name: Brama garażowa zezwolenie na otwarcie
+  adsvar: GVL_Bramy_Furtki.BramaGarazowa_Zezwolenie
+  device_class: lock
+- platform: ads
   name: garage_opened
-  adsvar: GVL_Sensors.bGATE_GARAGE_OPN
+  adsvar: GVL_Bramy_Furtki.BramaGarazowa_Otwarta
   device_class: garage_door
 
 - platform: ads
   name: garage_closed
-  adsvar: GVL_Sensors.bGATE_GARAGE_CLO
+  adsvar: GVL_Bramy_Furtki.BramaGarazowa_Zamknieta
   device_class: garage_door
 
 - platform: ads
   name: garage_moving
-  adsvar: GVL_Sensors.bGATE_GARAGE_MOVING
+  adsvar: GVL_Bramy_Furtki.BramaGarazowa_wRuchu
   device_class: garage_door
         
 ######################## BRAMA WJAZDOWA ######################## 
 
 - platform: ads
+  name: Brama wjazdowa zezwolenie na otwarcie
+  adsvar: GVL_Bramy_Furtki.BramaWjazdowa_Zezwolenie
+  device_class: lock
+
+- platform: ads
   name: entrance_gate_opened
-  adsvar: P_OUTSITE.bEntryGateStateOPN
+  adsvar: GVL_Bramy_Furtki.BramaWjazdowa_Otwarta
   device_class: garage_door
         
 - platform: ads
   name: entrance_gate_closed
-  adsvar: P_OUTSITE.bEntryGateStateCLO
+  adsvar: GVL_Bramy_Furtki.BramaWjazdowa_Zamknieta
   device_class: garage_door
         
 - platform: ads
   name: entrance_gate_moving
-  adsvar: GVL_Sensors.bGateEntry1_MOVING
+  adsvar: GVL_Bramy_Furtki.BramaWjazdowa_wRuchu
   device_class: garage_door
 
 ######################## GOSCINNA BRAMA WJAZDOWA ######################## 
 
 - platform: ads
   name: entrance_gate_guest
-  adsvar: GVL_Sensors.bGateEntry2_CLO
+  adsvar: GVL_Bramy_Furtki.BramaGoscinna_Zamknieta
   device_class: garage_door

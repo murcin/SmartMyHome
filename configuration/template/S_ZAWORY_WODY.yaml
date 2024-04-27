@@ -1,0 +1,57 @@
+
+- sensor:
+
+######################## ZAWORY WODY ########################
+
+  - name: zawor_wody_1 #ZASOBNIK CIEPŁEJ WODY
+    state: >
+     {% if is_state('binary_sensor.zaworwody_1_in2', 'off') %}
+      Zamknięty
+     {% elif is_state('binary_sensor.zaworwody_1_in1', 'off') %}
+      Otwarty
+     {% else %}
+      Otwier. lub zamyk.
+     {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.zaworwody_1_in2", "off") %}
+       mdi:valve-closed
+     {% elif is_state('binary_sensor.zaworwody_1_in1', 'off') %}
+       mdi:valve-open
+     {% else %}
+      mdi:valve
+     {% endif %}
+  - name: zawor_wody_2 #PIĘTRO
+    state: >
+     {% if is_state('binary_sensor.zaworwody_2_in2', 'off') %}
+       Zamknięty
+     {% elif is_state('binary_sensor.zaworwody_2_in1', 'off') %}
+      Otwarty
+     {% else %}
+      Otwier. lub zamyk.
+     {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.zaworwody_2_in2", "off") %}
+       mdi:valve-closed
+     {% elif is_state('binary_sensor.zaworwody_2_in1', 'off') %}
+       mdi:valve-open
+     {% else %}
+       mdi:valve
+     {% endif %}
+  - name: zawor_wody_3 #PARTER
+    state: >
+     {% if is_state('binary_sensor.zaworwody_3_in2', 'off') %}
+       Zamknięty
+     {% elif is_state('binary_sensor.zaworwody_3_in1', 'off') %}
+      Otwarty
+     {% else %}
+      Otwier. lub zamyk.
+     {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.zaworwody_3_in2", "off") %}
+       mdi:valve-closed
+     {% elif is_state('binary_sensor.zaworwody_3_in1', 'off') %}
+       mdi:valve-open
+     {% else %}
+       mdi:valve
+     {% endif %}
+

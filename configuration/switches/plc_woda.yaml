@@ -2,34 +2,35 @@
 ######################## ZAWORY WODY ########################
 
 - platform: ads
-  name: Zawor wody 1 otwórz
-  adsvar: P_BOILER.bOpenValve1
+  name: ZaworWody_1_Otworz
+  adsvar: GVL_Zawory.ZaworWody_1_Otworz
 - platform: ads
-  name: Zawor wody 1 zamknij
-  adsvar: P_BOILER.bCloseValve1
+  name: ZaworWody_1_Zamknij
+  adsvar: GVL_Zawory.ZaworWody_1_Zamknij
 
 - platform: ads
-  name: Zawor wody 2 otwórz
-  adsvar: P_BOILER.bOpenValve2
+  name: ZaworWody_2_Otworz
+  adsvar: GVL_Zawory.ZaworWody_2_Otworz
 - platform: ads
-  name: Zawor wody 2 zamknij
-  adsvar: P_BOILER.bCloseValve2
+  name: ZaworWody_2_Zamknij
+  adsvar: GVL_Zawory.ZaworWody_2_Zamknij
 
 - platform: ads
-  name: Zawor wody 3 otwórz
-  adsvar: P_BOILER.bOpenValve3
+  name: ZaworWody_3_Otworz
+  adsvar: GVL_Zawory.ZaworWody_3_Otworz
 - platform: ads
-  name: Zawor wody 3 zamknij
-  adsvar: P_BOILER.bCloseValve3
+  name: ZaworWody_3_Zamknij
+  adsvar: GVL_Zawory.ZaworWody_3_Zamknij
 
 - platform: ads
   name: Reset czujnikow zalania
-  adsvar: P_BOILER.b_water_sensor_reset
+  adsvar: P_Kotlownia.CzujnikiZalania_Reset
 
 - platform: ads
   name: Pompa cyrkulacji wymuszenie
-  adsvar: P_BOILER.bBridgePomp
+  adsvar: P_Kotlownia.CWU_WymuszenieCyrkulacji
 
 - platform: ads
   name: Mostek czujnikow zalania
-  adsvar: P_BOILER.bWaterSensorBridge
+  adsvar: P_Kotlownia.CzujnikiZalania_Mostek
+

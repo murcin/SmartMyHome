@@ -95,25 +95,25 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[1].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[1].iActlPosReq
             adstype: int
             value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[1].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[1].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[1].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[1].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[1].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[1].iActlAnglReq
           adstype: int
           value: "{{tilt}}"
     zaluzja_salon:
@@ -124,25 +124,25 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[2].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[2].iActlPosReq
             adstype: int
             value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[2].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[2].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[2].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[2].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[2].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[2].iActlAnglReq
           adstype: int
           value: "{{tilt}}"
 
@@ -154,25 +154,25 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[3].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[3].iActlPosReq
             adstype: int
             value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[3].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[3].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[3].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[3].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[3].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[3].iActlAnglReq
           adstype: int
           value: "{{tilt}}"
 
@@ -184,25 +184,25 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[4].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[4].iActlPosReq
             adstype: int
             value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[4].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[4].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[4].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[4].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[4].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[4].iActlAnglReq
           adstype: int
           value: "{{tilt}}"
 
@@ -214,25 +214,25 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[5].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[5].iActlPosReq
             adstype: int
             value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[5].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[5].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[5].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[5].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[5].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[5].iActlAnglReq
           adstype: int
           value: "{{tilt}}"
 
@@ -244,25 +244,25 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[6].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[6].iActlPosReq
             adstype: int
             value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[6].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[6].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[6].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[6].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[6].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[6].iActlAnglReq
           adstype: int
           value: "{{tilt}}"
 
@@ -274,25 +274,25 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[7].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[7].iActlPosReq
             adstype: int
             value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[7].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[7].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[7].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[7].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[7].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[7].iActlAnglReq
           adstype: int
           value: "{{tilt}}"
 
@@ -304,25 +304,25 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-             adsvar: GVL_Blinds.st_BLINDS[8].iActlPosReq
+             adsvar: GVL_Zaluzje.Zaluzje[8].iActlPosReq
              adstype: int
              value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[8].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[8].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[8].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[8].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[8].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[8].iActlAnglReq
           adstype: int
           value: "{{tilt}}"
 
@@ -334,25 +334,25 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[9].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[9].iActlPosReq
             adstype: int
             value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[9].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[9].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[9].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[9].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[9].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[9].iActlAnglReq
           adstype: int
           value: "{{tilt}}"
 
@@ -364,24 +364,24 @@
       open_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[10].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[10].iActlPosReq
             adstype: int
             value: 100
       close_cover:
           service: ads.write_data_by_name
           data:
-            adsvar: GVL_Blinds.st_BLINDS[10].iActlPosReq
+            adsvar: GVL_Zaluzje.Zaluzje[10].iActlPosReq
             adstype: int
             value: 0
       set_cover_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[10].iActlPosReq
+          adsvar: GVL_Zaluzje.Zaluzje[10].iActlPosReq
           adstype: int
           value: "{{position}}"
       set_cover_tilt_position:
         service: ads.write_data_by_name
         data:
-          adsvar: GVL_Blinds.st_BLINDS[10].iActlAnglReq
+          adsvar: GVL_Zaluzje.Zaluzje[10].iActlAnglReq
           adstype: int
           value: "{{tilt}}"

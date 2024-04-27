@@ -1,0 +1,85 @@
+
+######################## OŚWIETLENIE PIĘTRO ########################
+
+  - platform: ads
+    name: rozdzielnica
+    adsvar: GVL_Oswietlenie.bLIGHT_SWITCHGEAR
+  - platform: ads
+    name: biuro 1
+    adsvar: GVL_Oswietlenie.bLIGHT_OFFICE1
+  - platform: ads
+    name: biuro 2
+    adsvar: GVL_Oswietlenie.bLIGHT_OFFICE2
+  - platform: ads
+    name: biuro 3
+    adsvar: GVL_Oswietlenie.bLIGHT_OFFICE3
+  - platform: ads
+    name: pralnia 1
+    adsvar: GVL_Oswietlenie.bLIGHT_WASHROOM1
+  - platform: ads
+    name: pralnia 2
+    adsvar: GVL_Oswietlenie.bLIGHT_WASHROOM2
+  - platform: ads
+    name: łazienka górna 1
+    adsvar: GVL_Oswietlenie.bLIGHT_BATHROOMUP1
+  - platform: ads
+    name: łazienka górna 2
+    adsvar: GVL_Oswietlenie.bLIGHT_BATHROOMUP2
+  - platform: ads
+    name: łazienka górna 3
+    adsvar: GVL_Oswietlenie.bLIGHT_BATHROOMUP3
+  - platform: ads
+    name: łazienka górna 4
+    adsvar: GVL_Oswietlenie.bLIGHT_BATHROOMUP4
+  - platform: ads
+    name: lustro łazienka górna
+    adsvar: GVL_Oswietlenie.bLIGHT_BATHROOMUPmirror1
+  - platform: ads
+    name: led łazienka górna
+    adsvar: GVL_Oswietlenie.bLIGHT_BATHROOMUPled
+  - platform: ads
+    name: julia 1
+    adsvar: GVL_Oswietlenie.bLIGHT_JULIAROOM1
+  - platform: ads
+    name: julia 2
+    adsvar: GVL_Oswietlenie.bLIGHT_JULIAROOM2
+  - platform: ads
+    name: oliwia 1
+    adsvar: GVL_Oswietlenie.bLIGHT_OLIWIAROOM1
+  - platform: ads
+    name: oliwia 2
+    adsvar: GVL_Oswietlenie.bLIGHT_OLIWIAROOM2
+  - platform: ads
+    name: nocna julia
+    adsvar: GVL_Oswietlenie.bLIGHT_JULIAROOM_wall # wstawiono żarókę IKEA, obsługa tylko z HA
+  - platform: ads
+    name: nocna oliwia
+    adsvar: GVL_Oswietlenie.bLIGHT_OLIWIAROOM_wall # wstawiono żarókę IKEA, obsługa tylko z HA
+  - platform: ads
+    name: sypialnia 1
+    adsvar: GVL_Oswietlenie.bLIGHT_BADROOM1
+  - platform: ads
+    name: marcin sypialnia
+    adsvar: GVL_Oswietlenie.bLIGHT_BADROOMled1
+  - platform: ads
+    name: iwona sypialnia
+    adsvar: GVL_Oswietlenie.bLIGHT_BADROOMled2
+  - platform: ads
+    name: garderoba sypialnia
+    adsvar: GVL_Oswietlenie.bLIGHT_WEARDROBE
+#   - platform: ads
+#     name: led garderoba
+#     adsvar: GVL_Oswietlenie.bLIGHT_WEARDROBEled
+  - platform: ads
+    name: korytarz górny 1
+    adsvar: GVL_Oswietlenie.bLIGHT_HALLUP1
+  - platform: ads
+    name: korytarz górny 2
+    adsvar: GVL_Oswietlenie.bLIGHT_HALLUP2
+  - platform: ads
+    name: led korytarz górny
+    adsvar: GVL_Oswietlenie.bLIGHT_HallUpLed
+  - platform: ads
+    name: strych
+    adsvar: GVL_Oswietlenie.bLIGHT_ATTIC
+

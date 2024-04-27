@@ -1,0 +1,22 @@
+
+######################## GŁÓWNE WŁĄCZNIKI ŚWIATEŁ ########################
+
+  #fizyczne przyciski świateł z PLC
+- platform: ads
+  name: julia button
+  adsvar: GVL_Przelaczniki.Julia_1
+- platform: ads
+  name: oliwia button
+  adsvar: GVL_Przelaczniki.Oliwia_1
+- platform: ads
+  name: sypialnia button
+  adsvar: GVL_Przelaczniki.Sypialnia
+- platform: ads
+  name: sypialnia button m
+  adsvar: GVL_Przelaczniki.Sypialnia_Lozko_R1
+- platform: ads
+  name: sypialnia button i
+  adsvar: GVL_Przelaczniki.Sypialnia_Lozko_L1
+- platform: ads
+  name: biuro button
+  adsvar: GVL_Przelaczniki.Biuro_1

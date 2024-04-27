@@ -1,84 +1,177 @@
-  
+
+######################## CZUJNIKI CENTRALNE OGRZEWANIE DOM ########################
+
+- platform: ads
+  name: co_parter_grzej
+  device_class: heat
+  adsvar: P_Ogrzewanie_P0.bWymaganeOgrzewanie
+- platform: ads
+  name: co_pietro_grzej
+  device_class: heat
+  adsvar: P_Ogrzewanie_P1.bWymaganeOgrzewanie
+
 ######################## CZUJNIKI CENTRALNE OGRZEWANIE PARTER ########################
 
 - platform: ads
   name: co_boiler
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_boiler
+  adsvar: GVL_Ogrzewanie.bHF_Kotlownia
 - platform: ads
   name: co_garage
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_garage1
+  adsvar: GVL_Ogrzewanie.bHF_Garaz
 - platform: ads
   name: co_entrance
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_entrance
+  adsvar: GVL_Ogrzewanie.bHF_Przedpokoj
 - platform: ads
   name: co_bathroom_down
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_bathroomdown
+  adsvar: GVL_Ogrzewanie.bHF_LazienkaDolna
 - platform: ads
   name: co_smallroom
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_smallroom
+  adsvar: GVL_Ogrzewanie.bHF_Gabinet
 - platform: ads
   name: co_pantry
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_pantry
+  adsvar: GVL_Ogrzewanie.bHF_Spizarka
+
+### INFORMACJA O WYMAGANYM GRZANIU
+- platform: ads
+  name: co_salon_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P0.CentralneOgrzewanie[2].bEnHtg
+- platform: ads
+  name: co_kuchnia_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P0.CentralneOgrzewanie[3].bEnHtg
+- platform: ads
+  name: co_lazienkadolna_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P0.CentralneOgrzewanie[5].bEnHtg
+- platform: ads
+  name: co_gabinet_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P0.CentralneOgrzewanie[4].bEnHtg
+- platform: ads
+  name: co_przedpokoj_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P0.CentralneOgrzewanie[6].bEnHtg
+- platform: ads
+  name: co_spizarka_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P0.CentralneOgrzewanie[8].bEnHtg
+- platform: ads
+  name: co_garaz_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P0.CentralneOgrzewanie[7].bEnHtg
+- platform: ads
+  name: co_kotlownia_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P0.CentralneOgrzewanie[1].bEnHtg
 
 ######################## CZUJNIKI CENTRALNE OGRZEWANIE PIĘTRO ########################
 
 - platform: ads
   name: co_julia
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_julia1
+  adsvar: GVL_Ogrzewanie.bHF_Julia
 - platform: ads
   name: co_oliwia
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_oliwia1
+  adsvar: GVL_Ogrzewanie.bHF_Oliwia
 - platform: ads
   name: co_badroom
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_badroom1
+  adsvar: GVL_Ogrzewanie.bHF_Sypialnia
 - platform: ads
   name: co_office
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_office1
+  adsvar: GVL_Ogrzewanie.bHF_Biuro
 - platform: ads
   name: co_washroom
   device_class: heat
-  adsvar: GVL_FloorHeating.bHF_washroom
+  adsvar: GVL_Ogrzewanie.bHF_Pralnia
+
+### INFORMACJA O WYMAGANYM GRZANIU
+- platform: ads
+  name: co_lazienkagorna_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P1.CentralneOgrzewanie[6].bEnHtg
+- platform: ads
+  name: co_julia_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P1.CentralneOgrzewanie[1].bEnHtg
+- platform: ads
+  name: co_oliwia_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P1.CentralneOgrzewanie[2].bEnHtg
+- platform: ads
+  name: co_sypialnia_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P1.CentralneOgrzewanie[3].bEnHtg
+- platform: ads
+  name: co_biuro_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P1.CentralneOgrzewanie[5].bEnHtg
+- platform: ads
+  name: co_pralnia_req
+  device_class: heat
+  adsvar: P_Ogrzewanie_P1.CentralneOgrzewanie[4].bEnHtg
 
 ######################## CENTRALNE OGRZEWANIE ########################
 
 - platform: ads
-  name: co_circulation_pomp
+  name: Ogrzewanie parter Vaillant
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.CO_Parter_Vaillant
+- platform: ads
+  name: Ogrzewanie piętro Vaillant
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.CO_Pietro_Vaillant
+
+- platform: ads
+  name: Ogrzewanie parter PLC
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.CO_Parter_PLC
+- platform: ads
+  name: Ogrzewanie piętro PLC
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.CO_Pietro_PLC
+  
+- platform: ads
+  name: Ogrzewanie parter Pompa
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.CO_Parter_Pompa
+- platform: ads
+  name: Ogrzewanie piętro Pompa
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.CO_Pietro_Pompa
+
+- platform: ads
+  name: Ogrzewanie CWU Vaillant
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.CWU_Vaillant
+- platform: ads
+  name: Ogrzewanie CWU PLC
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.CWU_PLC
+- platform: ads
+  name: Ogrzewanie CWU Pompa
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.CWU_Pompa
+
+- platform: ads
+  name: Piec CO działa
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.bPiec_CO_WORKING
+- platform: ads
+  name: Piec CO grzeje
+  device_class: heat
+  adsvar: GVL_Ogrzewanie.bPiec_Grzeje
+
+- platform: ads
+  name: Pompa cyrkulacji
   device_class: plug
-  adsvar: GVL_FloorHeating.bCirculationPomp_Q
-
-- platform: ads
-  name: co_pomp_floor_0
-  device_class: heat
-  adsvar: GVL_FloorHeating.bPomp_P0
-- platform: ads
-  name: co_pomp_floor_1
-  device_class: heat
-  adsvar: GVL_FloorHeating.bPomp_P1
-- platform: ads
-  name: co_mixpomp_floor_0_lev_1
-  device_class: power
-  adsvar: GVL_FloorHeating.bMixPomp_P0_level_1
-- platform: ads
-  name: co_mixpomp_floor_0_lev_2
-  device_class: power
-  adsvar: GVL_FloorHeating.bMixPomp_P0_level_2
-- platform: ads
-  name: co_mixpomp_floor_1_lev_1
-  device_class: power
-  adsvar: GVL_FloorHeating.bMixPomp_P1_level_1
-- platform: ads
-  name: co_mixpomp_floor_1_lev_2
-  device_class: power
-  adsvar: GVL_FloorHeating.bMixPomp_P1_level_2
-
-
+  adsvar: GVL_Ogrzewanie.bCirculationPomp_Q

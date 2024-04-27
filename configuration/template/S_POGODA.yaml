@@ -1,0 +1,59 @@
+
+- sensor:
+
+######################## WSCHOD I ZACHÓD SŁOŃCA ########################
+  - name: sun_nastepny_swit
+    state: "{{ as_timestamp(state_attr('sun.sun', 'next_dawn')) | timestamp_custom('%d.%m, %H:%M') }}"
+  - name: sun_nastepny_zmierzch
+    state: "{{ as_timestamp(state_attr('sun.sun', 'next_dusk')) | timestamp_custom('%d.%m, %H:%M') }}"
+  - name: sun_nastepna_sloneczna_polnoc
+    state: "{{ as_timestamp(state_attr('sun.sun', 'next_midnight')) | timestamp_custom('%d.%m, %H:%M') }}"
+  - name: sun_nastepne_sloneczne_poludnie
+    state: "{{ as_timestamp(state_attr('sun.sun', 'next_noon')) | timestamp_custom('%d.%m, %H:%M') }}"
+  - name:  sun_nastepny_wschod
+    state: "{{ as_timestamp(state_attr('sun.sun', 'next_rising')) | timestamp_custom('%d.%m, %H:%M') }}"
+  - name: sun_nastepny_zachod
+    state: "{{ as_timestamp(state_attr('sun.sun', 'next_setting')) | timestamp_custom('%d.%m, %H:%M') }}"
+
+######################## AKTUALNA POZYCJA SŁOŃCA ########################
+  - name: sun_elevation
+    unit_of_measurement: "°"
+    state: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
+  - name: sun_azimuth
+    unit_of_measurement: "°"
+    state: "{{ '%+.1f'|format(state_attr('sun.sun', 'azimuth')) }}"
+
+######################## PROGNOZA GODZINOWA ########################
+  - name: pogoda prognoza 1
+    state: "{{ state_attr('weather.forecast_home', 'forecast')[0].temperature }}"
+    unit_of_measurement: "°C"
+  - name: pogoda prognoza 2
+    state: "{{ state_attr('weather.forecast_home', 'forecast')[1].temperature }}"
+    unit_of_measurement: "°C"
+  - name: pogoda prognoza 3
+    state: "{{ state_attr('weather.forecast_home', 'forecast')[2].temperature }}"
+    unit_of_measurement: "°C"
+  - name: pogoda prognoza 4
+    state: "{{ state_attr('weather.forecast_home', 'forecast')[3].temperature }}"
+    unit_of_measurement: "°C"
+  - name: pogoda prognoza 5
+    state: "{{ state_attr('weather.forecast_home', 'forecast')[4].temperature }}"
+    unit_of_measurement: "°C"
+
+  - name: pogoda prognoza wiatru
+    state: "{{ state_attr('weather.forecast_home', 'wind_speed') }}"
+    unit_of_measurement: "km/h"
+
+  - name: aktualna pogoda weather
+    state: >
+      {% if is_state('weather.forecast_home', 'partlycloudy') %}
+        Częściowe zachmurzenie
+      {% elif is_state('weather.forecast_home', 'cloudy') %}
+        Pochmurno
+      {% elif is_state('weather.forecast_home', 'sunny') %}
+        Słonecznie
+      {% elif is_state('weather.forecast_home', 'rainy') %}
+        Deszczowo
+      {% else %}
+        Nieznany
+      {% endif %}

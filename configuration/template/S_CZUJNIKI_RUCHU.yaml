@@ -1,0 +1,58 @@
+
+######################## TEMPLATE OSTATNI WYKRYTY RUCH ########################
+
+- sensor:
+  - name: Ostatni wykryty ruch dom
+    state: >
+      {% set sensors = [states.binary_sensor.ruch_przedpokoj,
+                states.binary_sensor.ruch_garderoba_przedpokoj,
+                states.binary_sensor.ruch_korytarz_dolny,
+                states.binary_sensor.ruch_lazienka_dolna,
+                states.binary_sensor.ruch_gabinet,
+                states.binary_sensor.ruch_spizarka,
+                states.binary_sensor.ruch_kuchnia,
+                states.binary_sensor.ruch_salon,
+                states.binary_sensor.ruch_garaz,
+                states.binary_sensor.ruch_kotlownia,
+                states.binary_sensor.ruch_korytarz_gorny,
+                states.binary_sensor.ruch_lazienka_gorna,
+                states.binary_sensor.ruch_julia,
+                states.binary_sensor.ruch_oliwia,
+                states.binary_sensor.ruch_sypialnia,
+                states.binary_sensor.ruch_garderoba_sypialnia,
+                states.binary_sensor.ruch_biuro,
+                states.binary_sensor.ruch_pralnia] %}
+      {% set time = sensors | map(attribute='last_changed') | max %}
+      {% set sensor = (sensors | selectattr('last_changed','eq', time) | list)[0] %}
+      {{sensor.name.split(' ')[1]}}
+
+
+  - name: Ostatni wykryty ruch parter
+    state: >
+      {% set sensors = [states.binary_sensor.ruch_przedpokoj,
+                states.binary_sensor.ruch_garderoba_przedpokoj,
+                states.binary_sensor.ruch_korytarz_dolny,
+                states.binary_sensor.ruch_lazienka_dolna,
+                states.binary_sensor.ruch_gabinet,
+                states.binary_sensor.ruch_spizarka,
+                states.binary_sensor.ruch_kuchnia,
+                states.binary_sensor.ruch_salon,
+                states.binary_sensor.ruch_garaz,
+                states.binary_sensor.ruch_kotlownia] %}
+      {% set time = sensors | map(attribute='last_changed') | max %}
+      {% set sensor = (sensors | selectattr('last_changed','eq', time) | list)[0] %}
+      {{sensor.name.split(' ')[1]}}
+
+  - name: Ostatni wykryty ruch pietro
+    state: >
+      {% set sensors = [states.binary_sensor.ruch_korytarz_gorny,
+                states.binary_sensor.ruch_lazienka_gorna,
+                states.binary_sensor.ruch_julia,
+                states.binary_sensor.ruch_oliwia,
+                states.binary_sensor.ruch_sypialnia,
+                states.binary_sensor.ruch_garderoba_sypialnia,
+                states.binary_sensor.ruch_biuro,
+                states.binary_sensor.ruch_pralnia] %}
+      {% set time = sensors | map(attribute='last_changed') | max %}
+      {% set sensor = (sensors | selectattr('last_changed','eq', time) | list)[0] %}
+      {{sensor.name.split(' ')[1]}}

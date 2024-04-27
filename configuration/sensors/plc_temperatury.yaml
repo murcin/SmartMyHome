@@ -3,15 +3,39 @@
 
 - platform: ads
   name: Temp. rozdzielnica P1
-  adsvar: GVL_IO.iTemp_A12[1].bTemp
+  adsvar: P_System.iTemp_rozdzielnica_P1
   unit_of_measurement: '°C'
-  factor: 100 
+  factor: 10
   adstype: int
-  scan_interval: 1000
 - platform: ads
   name: Temp. rozdzielnica P0
-  adsvar: GVL_IO.iTemp_A2[1].bTemp
+  adsvar: P_System.iTemp_rozdzielnica_P0
   unit_of_measurement: '°C'
-  factor: 100 
+  factor: 10
   adstype: int
-  scan_interval: 1000
+- platform: ads
+  name: Temp. PLC
+  adsvar: P_System.iTemp_PLC
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+
+- platform: ads
+  name: Temperatura Salon
+  adsvar: GVL_Ogrzewanie_HA.iTemp_Salon
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+
+- platform: ads
+  name: Temperatura KorytarzParter
+  adsvar: GVL_Ogrzewanie_HA.iTemp_KorytarzParter
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temperatura Biuro
+  adsvar: GVL_Ogrzewanie_HA.iTemp_Biuro
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int

@@ -2,11 +2,11 @@
  Radio:
   name: Radio
   entities:
-  - input_select.radio_station
   - input_select.audio_select
-  - script.radio_play
+  - input_select.radio_station
+  - input_text.custom_station
   - input_number.volume_radio
-  - sensor.speaker_volume
+  - script.radio_play
 
  DoorAndGate_P0:
   name: Czujniki drzwi i bram
@@ -17,14 +17,22 @@
   - binary_sensor.brama_garazowa
   - binary_sensor.okno_salon_taras
 
- DoorAndGate_P1:
-  name: Czujniki drzwi
+ Door_P0:
+  name: Czujniki drzwi wewnetrznych
   icon: mdi:door
   entities:
-  - binary_sensor.attic_window_contact
-  - binary_sensor.attic_door_contact
-  - binary_sensor.switchgear_door_contact
-  
+  - binary_sensor.drzwi_gabinet_contact
+  - binary_sensor.drzwi_garaz_contact
+  - binary_sensor.drzwi_przedpokoj_contact
+
+ Door_P1:
+  name: Czujniki drzwi wewnetrznych
+  icon: mdi:door
+  entities:
+  - binary_sensor.wylaz_strych
+  - binary_sensor.drzwi_rozdzielnica_contact
+  - binary_sensor.drzwi_lazienkagorna_contact
+
  Window_sensor_P0:
   name: Czujniki okien Parter
   icon: mdi:window-closed-variant
@@ -38,7 +46,7 @@
   - binary_sensor.okno_kuchnia_r
   - binary_sensor.okno_salon_l
   - binary_sensor.okno_salon_r
-  
+
  Window_sensor_P1:
   name: Czujniki okien Piętro
   icon: mdi:window-closed-variant
@@ -53,6 +61,7 @@
   - binary_sensor.okno_biuro_l
   - binary_sensor.okno_biuro_r
   - binary_sensor.okno_pralnia
+  - binary_sensor.okno_strych
 
  Bezpieczniki_Parter:
   name: Bezpieczniki 24v Parter
@@ -64,7 +73,7 @@
   - binary_sensor.bezpiecznik_p0_przelaczniki
   - binary_sensor.bezpiecznik_p0_zewnetrzne
   - binary_sensor.bezpiecznik_p0_wykonawcze_pietro
- 
+
  Bezpieczniki_Pietro:
   name: Bezpieczniki 24v Piętro
 #  device_class: motion
@@ -80,32 +89,61 @@
   name: Czujniki ruchu parter
   icon: hass:run
   entities:
-  - binary_sensor.ruch_w_salonie
-  - binary_sensor.ruch_w_kuchni
+  - binary_sensor.ruch_salon
+  - binary_sensor.ruch_kuchnia
   - binary_sensor.ruch_korytarz_dolny
-  - binary_sensor.hallmovesensordwn_occupancy
-  - binary_sensor.ruch_w_lazience_dolnej
-  - binary_sensor.ruch_w_gabinecie
-  - binary_sensor.ruch_w_przedpokoju
-  - binary_sensor.ruch_w_garderobie_w_przedpokoju
-  - binary_sensor.ruch_w_spizarce
-  - binary_sensor.ruch_w_garazu
-  - binary_sensor.ruch_w_kotlowni
+  - binary_sensor.ruch_schody_p0_occupancy
+  - binary_sensor.ruch_lazienka_dolna
+  - binary_sensor.ruch_gabinet
+  - binary_sensor.ruch_przedpokoj
+  - binary_sensor.ruch_garderoba_przedpokoj
+  - binary_sensor.ruch_spizarka
+  - binary_sensor.ruch_garaz
+  - binary_sensor.ruch_kotlownia
+
+ Obecnosc_parter:
+  name: Obecnosc parter
+  icon: hass:account-check
+  entities:
+  - switch.obecnosc_salon
+  - switch.obecnosc_kuchnia
+  - switch.obecnosc_korytarz_dolny
+  - switch.obecnosc_lazienka_dolna
+  - switch.obecnosc_gabinet
+  - switch.obecnosc_przedpokoj
+  - switch.obecnosc_przedpokoj
+  - switch.obecnosc_spizarka
+  - switch.obecnosc_garaz
+  - switch.obecnosc_kotlownia
 
  Czujniki_ruchu_pietro:
   name: Czujniki ruchu piętro
   icon: hass:run
   entities:
   - binary_sensor.ruch_korytarz_gorny
-  - binary_sensor.hallmovesensorup_occupancy
-  - binary_sensor.ruch_w_lazience_gornej
-  - binary_sensor.ruch_u_julii
-  - binary_sensor.ruch_u_oliwii
-  - binary_sensor.ruch_w_sypialni
-  - binary_sensor.ruch_w_garderobie_w_sypialni
-  - binary_sensor.ruch_w_biurze
-  - binary_sensor.ruch_w_pralni
- 
+  - binary_sensor.ruch_schody_p1_occupancy
+  - binary_sensor.ruch_lazienka_gorna
+  - binary_sensor.ruch_julia
+  - binary_sensor.ruch_oliwia
+  - binary_sensor.ruch_sypialnia
+  - binary_sensor.ruch_garderoba_sypialnia
+  - binary_sensor.ruch_biuro
+  - binary_sensor.ruch_pralnia
+
+ Obecnosc_pietro:
+  name: Obecnosc piętro
+  icon: hass:account-check
+  entities:
+  - switch.obecnosc_korytarz_gorny
+  - switch.obecnosc_lazienka_gorna
+  - switch.obecnosc_julia
+  - switch.obecnosc_oliwia
+  - switch.obecnosc_sypialnia
+  - switch.obecnosc_garderoba_gorna
+  - switch.obecnosc_biuro
+  - switch.obecnosc_pralnia
+  - switch.obecnosc_strych
+
  kuchnia:
   name: Kuchnia
   icon: mdi:silverware-fork-knife
@@ -125,8 +163,7 @@
     - light.barek_3
     - light.barek_2
     - light.barek_1
-    - light.jadalnia_1
-    - light.jadalnia_2
+    - light.jadalnia
 
  salon:
   name: Salon
@@ -134,7 +171,7 @@
   entities:
     - light.salon_1
     - light.salon_2
-    
+
  led:
   name: Led
   icon: mdi:led-strip-variant
@@ -178,9 +215,9 @@
   entities:
     - light.garaz_1
     - light.garaz_2
-    - light.garaz_3
-    - light.biurko_garaz
- 
+#    - light.garaz_3
+#    - light.biurko_garaz
+
  przedpokoj:
   name: Przedpokój
   icon: mdi:door-closed
@@ -242,7 +279,7 @@
   entities:
     - light.sypialnia_1
     - light.iwona_sypialnia
-    - light.badroom_m_light_wall
+    - light.marcin_sypialnia
 
  pralnia:
   name: Pralnia
@@ -256,8 +293,8 @@
   icon: mdi:face-woman-outline
   entities:
     - light.julia_1
- #   - light.nocna_julia
-    - light.juliawall
+    - light.nocna_julia
+#    - light.lampajulia
 
  oliwia:
   name: Oliwia
@@ -265,8 +302,8 @@
   entities:
     - light.oliwia_1
     - light.oliwia_2
- #   - light.nocna_oliwia
-    - light.oliwiawall
+    - light.nocna_oliwia
+#    - light.lampaoliwia
 
  zewnetrzne:
   name: Zewnętrzne
@@ -298,24 +335,23 @@
  uslugi_add_on:
   name: Ilość usług
   entities:
-    - binary_sensor.adguard_home_running
-    - binary_sensor.check_home_assistant_configuration_running
-    - binary_sensor.duck_dns_running
-    - binary_sensor.file_editor_running
-    - binary_sensor.glances_running
-    - binary_sensor.google_assistant_sdk_running
-    - binary_sensor.grafana_running
-    - binary_sensor.influxdb_running
-    - binary_sensor.let_s_encrypt_running
-    - binary_sensor.log_viewer_running
-    - binary_sensor.mariadb_running
-    - binary_sensor.mosquitto_broker_running
-    - binary_sensor.nginx_home_assistant_ssl_proxy_running
-    - binary_sensor.node_red_running
-    - binary_sensor.phpmyadmin_running
-    - binary_sensor.samba_backup_running
-    - binary_sensor.samba_share_running
-    - binary_sensor.spotify_connect_running
-    - binary_sensor.tailscale_running
-    - binary_sensor.zigbee2mqtt_running
+    - binary_sensor.adguard_home_dzialanie
+    - binary_sensor.duck_dns_dzialanie
+    - binary_sensor.esphome_dzialanie
+    - binary_sensor.file_editor_dzialanie
+    - binary_sensor.glances_dzialanie
+    - binary_sensor.grafana_dzialanie
+    - binary_sensor.influxdb_dzialanie
+    - binary_sensor.let_s_encrypt_dzialanie
+    - binary_sensor.log_viewer_dzialanie
+    - binary_sensor.mariadb_dzialanie
+    - binary_sensor.mosquitto_broker_dzialanie
+    - binary_sensor.nginx_home_assistant_ssl_proxy_dzialanie
+    - binary_sensor.node_red_dzialanie
+    - binary_sensor.phpmyadmin_dzialanie
+    - binary_sensor.rtsptowebrtc_dzialanie
+    - binary_sensor.samba_share_dzialanie
+    - binary_sensor.spotify_connect_dzialanie
+    - binary_sensor.wmbusmeters_w_mbus_to_mqtt_dzialanie
+    - binary_sensor.zigbee2mqtt_dzialanie
 

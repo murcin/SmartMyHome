@@ -1,0 +1,10 @@
+run_gas_impuls_to_plc:
+    alias: ADS_Gas_impulsy_miesiac
+    description: wpisanie do sterownika PLC ilości impulsów gazu w tym miesiącu
+    sequence:
+      - service: ads.write_data_by_name
+        data:
+          adsvar: P_GasMeter.impulsy_miesiac
+          adstype: int
+          value: "{{  states.input_number.ads_licznik_gazu.state  }}"
+    mode: single

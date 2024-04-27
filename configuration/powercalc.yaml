@@ -1,0 +1,173 @@
+
+  sensors:
+
+######################## POMIARY ZUŻYCIA ENERGI INTEGRACJI POWERCALC ######################## 
+    - entity_id: sensor.ipower_nopv_sum
+      name: sprzedaz_energii_do_sieci
+    #  create_energy_sensors: true
+      create_utility_meters: true
+      utility_meter_types:
+        - daily
+        - monthly
+      fixed:
+        power: "{{states('sensor.ipower_nopv_sum')}}"
+        
+    - entity_id: sensor.ipower_sum
+      name: kupno_energii_z_sieci
+     # create_energy_sensors: true
+      create_utility_meters: true
+      utility_meter_types:
+        - daily
+        - monthly
+      fixed:
+        power: "{{states('sensor.ipower_sum')}}"
+
+    - entity_id: sensor.ipower_kupno_bilans
+      name: kupno_energii_z_sieci bilans
+    #  create_energy_sensors: true
+      create_utility_meters: true
+      utility_meter_types:
+        - daily
+        - monthly
+      fixed:
+        power: "{{states('sensor.ipower_kupno_bilans')}}"
+
+    - entity_id: sensor.ipower_sprzedaz_bilans
+      name: sprzedaz_energii_do_sieci bilans
+     # create_energy_sensors: true
+      create_utility_meters: true
+      utility_meter_types:
+        - daily
+        - monthly
+      fixed:
+        power: "{{states('sensor.ipower_sprzedaz_bilans')}}"
+
+    - entity_id: sensor.ipower_pv_sum
+      name: produkcja_energii
+     # create_energy_sensors: true
+      create_utility_meters: true
+      utility_meter_types:
+        - daily
+        - monthly
+      fixed:
+        power: "{{states('sensor.ipower_pv_sum')}}"
+
+    - entity_id: sensor.iPower_L1_OUT
+      name: oddane_do_sieci_l1
+      fixed:
+        power: "{{states('sensor.iPower_L1_OUT')}}"
+    - entity_id: sensor.iPower_L2_OUT
+      name: oddane_do_sieci_l2
+      fixed:
+        power: "{{states('sensor.iPower_L2_OUT')}}"
+    - entity_id: sensor.iPower_L3_OUT
+      name: oddane_do_sieci_l3
+      fixed:
+        power: "{{states('sensor.iPower_L3_OUT')}}"
+
+    - entity_id: sensor.iPower_L1
+      name: uzycie_w_domu_l1
+      fixed:
+        power: "{{states('sensor.iPower_L1')}}"
+    - entity_id: sensor.iPower_L2
+      name: uzycie_w_domu_l2
+      fixed:
+        power: "{{states('sensor.iPower_L2')}}"
+    - entity_id: sensor.iPower_L3
+      name: uzycie_w_domu_l3
+      fixed:
+        power: "{{states('sensor.iPower_L3')}}"
+
+    - entity_id: sensor.ipower_pv_l1
+      name: produkcja_energii_l1
+      fixed:
+        power: "{{states('sensor.ipower_pv_l1')}}"
+    - entity_id: sensor.ipower_pv_l2
+      name: produkcja_energii_l2
+      fixed:
+        power: "{{states('sensor.ipower_pv_l2')}}"
+    - entity_id: sensor.ipower_pv_l3
+      name: produkcja_energii_l3
+      fixed:
+        power: "{{states('sensor.ipower_pv_l3')}}"
+
+    ######################## POSZCZEGÓLNE URZĄDZENIA ######################## 
+    - entity_id: binary_sensor.binary_roborock
+      fixed:
+        power: 2
+      name: roborock powercalc
+
+    - entity_id: switch.gniazdkomonitor_ha
+      fixed:
+        power: 21
+      name: monitor_hmi powercalc
+
+    - entity_id: switch.diskstation
+      fixed:
+        power: 20
+      name: diskstation powercalc
+
+    - entity_id: switch.gniazdka_strych
+      fixed:
+        power: 7
+      name: attic powercalc
+
+    - entity_id: binary_sensor.binary_switch_gbn
+      fixed:
+        power: 2
+      name: switch_gbn powercalc
+
+    - entity_id: binary_sensor.binary_router
+      fixed:
+        power: 10
+      name: router powercalc
+
+    - entity_id: binary_sensor.binary_rejestrator
+      fixed:
+        power: 7
+      name: rejestrator powercalc
+
+    - entity_id: binary_sensor.binary_switches
+      fixed:
+        power: 15
+      name: switches powercalc
+
+    - entity_id: binary_sensor.binary_switch_poe
+      fixed:
+        power: 6
+      name: switch_poe powercalc
+
+    - entity_id: binary_sensor.binary_hp_elitedesk_g3
+      fixed:
+        power: 20
+      name: hp_elitedesk_g3 powercalc
+
+    - entity_id: binary_sensor.binary_plc
+      fixed:
+        power: 32
+      name: plc powercalc
+
+    - entity_id: binary_sensor.binary_zasilacz_24
+      fixed:
+        power: 20
+      name: zasilacz_24 powercalc
+
+    - entity_id: binary_sensor.binary_smart_home
+      fixed:
+        power: "{{states('sensor.smarthome_power')}}"
+      name: smarthome_powercalc
+
+    - entity_id: switch.gniazdka_tv_salon
+      fixed:
+        power: "{{states('sensor.salon_media_power')}}"
+      name: salon_media_powercalc
+
+    - entity_id: switch.kotlownia_dogrzewacz_1
+      fixed:
+        power: 3000
+      name: dogrzewacz_1
+
+    - entity_id: switch.kotlownia_dogrzewacz_2
+      fixed:
+        power: 2000
+      name: dogrzewacz_2

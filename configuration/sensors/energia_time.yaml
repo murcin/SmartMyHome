@@ -1,4 +1,5 @@
 
+
  ######################## CZASY ZAŁĄCZONYCH ELEMENTÓW ########################
  
  # UPS
@@ -19,73 +20,10 @@
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 
-# hp_elitedesk_g3
-- platform: history_stats
-  name: hp_elitedesk_g3 time_on
-  entity_id: binary_sensor.alwaystrue
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-
-# SWITCH POE
-- platform: history_stats
-  name: switch_poe time_on
-  entity_id: binary_sensor.alwaystrue
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-
-# SWITCHES
-- platform: history_stats
-  name: switches time_on
-  entity_id: binary_sensor.alwaystrue
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-
-# ROUTER
-- platform: history_stats
-  name: Router time_on
-  entity_id: binary_sensor.alwaystrue
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-
-# SWITCH OD GBN
-- platform: history_stats
-  name: gbn_switch time_on
-  entity_id: binary_sensor.alwaystrue
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-
-# ZASILACZ 24V
-- platform: history_stats
-  name: zasilacz_24 time_on
-  entity_id: binary_sensor.alwaystrue
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-
 # ODKURZACZ ROBOROCK
 - platform: history_stats
   name: roborock time_on
-  entity_id: binary_sensor.alwaystrue
-  state: 'on'
-  type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-
-# PIEKARNIK OVEN
-- platform: history_stats
-  name: oven time_on
-  entity_id: binary_sensor.binary_oven
+  entity_id: binary_sensor.ping_roborock
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
@@ -94,123 +32,185 @@
  # GNIAZDKO MONITOR 
 - platform: history_stats
   name: Monitor_hmi Time_ON
-  entity_id: switch.monitorhmi
+  entity_id: switch.gniazdkomonitor_ha
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 
- # GNIAZDKO LAPTOPA 
+ # GNIAZDKO LAPTOPA  BIURO
 - platform: history_stats
-  name: Laptop Time_ON
-  entity_id: switch.officelaptop
+  name: biuro laptop Time_ON
+  entity_id: switch.gniazdkobiuro_laptop
   state: 'on'
   type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-- platform: history_stats
-  name: Laptop Count_ON
-  entity_id: switch.officelaptop
-  state: 'on'
-  type: count
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 
-# GNIAZDKA BIURO
+ # GNIAZDKO LAPTOPA JULIA
 - platform: history_stats
-  name: biuro time_on
-  entity_id: switch.office
+  name: julia laptop Time_ON
+  entity_id: switch.gniazdkojulia_laptop
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
+
+ # GNIAZDKO LAPTOPA  OLIWIA
 - platform: history_stats
-  name: biuro count_on
-  entity_id: switch.office
+  name: oliwia laptop Time_ON
+  entity_id: switch.gniazdkooliwia_laptop
   state: 'on'
-  type: count
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+  
+ # PRALKA1
+- platform: history_stats
+  name: pralnia_pralka1 time_on
+  entity_id: sensor.pranie1
+  state: 'Trwa pranie...'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+ # PRALKA2
+- platform: history_stats
+  name: pralnia_pralka2 time_on
+  entity_id: sensor.pranie2
+  state: 'Trwa pranie...'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+ # SUSZARKA
+- platform: history_stats
+  name: pralnia_suszarka time_on
+  entity_id: sensor.suszarka_stan
+  state: 'Trwa suszenie...'
+  type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 
  # ZMYWARKA
 - platform: history_stats
-  name: dishwasher time_on
+  name: kuchnia_zmywarka time_on
   entity_id: sensor.zmywarka
   state: 'Trwa mycie...'
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
+
+ # PAZNOKCIE
 - platform: history_stats
-  name: dishwasher count_on
-  entity_id: sensor.zmywarka
-  state: 'Trwa mycie...'
-  type: count
+  name: gabinet paznokcie time_on
+  entity_id: switch.gniazdkogabinet_paznokcie
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# LODÓWKA
+- platform: history_stats
+  name: kuchnia_lodowka time_on
+  entity_id: switch.gniazdkokuchnia_lodowka
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# SALON MEDIA
+- platform: history_stats
+  name: salon_media time_on
+  entity_id: switch.gniazdka_tv_salon
+  state: 'on'
+  type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
  
-# LODÓWKA
+# GNIAZDKA PIEKARNIK
 - platform: history_stats
-  name: fridge time_on
-  entity_id: switch.fridge
-  state: 'on'
+  name: kuchnia_piekarnik time_on
+  entity_id: sensor.piekarnik
+  state: 'Włączony'
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
+
+# GNIAZDKA MIKROFALOWKA
 - platform: history_stats
-  name: fridge count_on
-  entity_id: switch.fridge
-  state: 'on'
-  type: count
+  name: kuchnia_mikrofalowka time_on
+  entity_id: sensor.mikrofalowka
+  state: 'Włączona'
+  type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 
 # BOILER CO
 - platform: history_stats
-  name: boiler time_on
-  entity_id: switch.boiler
+  name: kotlownia_piec time_on
+  entity_id: switch.kotlownia_piec
   state: 'on'
   type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-- platform: history_stats
-  name: boiler count_on
-  entity_id: switch.boiler
-  state: 'on'
-  type: count
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 
-# GNIAZDKA PRALKA
+# BIURO ŻELAZKO
 - platform: history_stats
-  name: washing_machine time_on
-  entity_id: sensor.pranie
-  state: 'Trwa pranie...'
+  name: biuro_zelazko_time_on
+  entity_id: sensor.zelazko
+  state: 'Prasowanie'
   type: time
-  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'
-- platform: history_stats
-  name: washing_machine count_on
-  entity_id: sensor.pranie
-  state: 'Trwa pranie...'
-  type: count
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 
 # DISKSTATION
 - platform: history_stats
-  name: Diskstation time_on
-  entity_id: binary_sensor.ping_diskstation
+  name: diskstation time_on
+  entity_id: button.diskstation_reboot
+  state: 'unknown'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# REJESTRATOR
+- platform: history_stats
+  name: Rejestrator time_on
+  entity_id: binary_sensor.binary_rejestrator
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# GNIAZDKA BASEN
+- platform: history_stats
+  name: basen_filtr time_on
+  entity_id: switch.gniazdka_zewnetrzne
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 - platform: history_stats
-  name: Diskstation count_on
-  entity_id: binary_sensor.ping_diskstation
+  name: basen_filtr count_on
+  entity_id: switch.gniazdka_zewnetrzne
   state: 'on'
   type: count
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
-  end: '{{ now() }}'  
+  end: '{{ now() }}'
+
+# GNIAZDKA BASEN DOGRZEWACZ
+- platform: history_stats
+  name: basen_dogrzewacz time_on
+  entity_id: switch.basen_dogrzewacz
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: basen_dogrzewacz count_on
+  entity_id: switch.basen_dogrzewacz
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
 
 # GNIAZDKA SALON TV
 - platform: history_stats
@@ -228,7 +228,7 @@
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 
-# STRYCH, WZMACNIACZ ANTENOWY, KAMERA PIĘTRO
+# STRYCH, WZMACNIACZ ANTENOWY
 - platform: history_stats
   name: attic time_on
   entity_id: switch.gniazdka_strych
@@ -247,14 +247,14 @@
 # ZANIKI NAPIĘCIA
 - platform: history_stats
   name: no_power time_on
-  entity_id: binary_sensor.zasilanie_230v
+  entity_id: binary_sensor.zasilanie_230v_ok
   state: 'on'
   type: time
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'
   end: '{{ now() }}'
 - platform: history_stats
   name: no_power count_on
-  entity_id: binary_sensor.zasilanie_230v
+  entity_id: binary_sensor.zasilanie_230v_ok
   state: 'on'
   type: count
   start: '{{ now().replace(hour=0, minute=0, second=0) }}'

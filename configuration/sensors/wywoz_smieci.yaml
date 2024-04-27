@@ -1,0 +1,81 @@
+  # WASTE COLLECTION
+  - platform: waste_collection_schedule
+    name: Śmieci następny wywóz
+    details_format:
+      appointment_types
+      # All
+  - platform: waste_collection_schedule
+    name: Śmieci wywozy
+    details_format: appointment_types
+    leadtime: "3"
+    value_template: " {{ value.daysTo }} dni"
+    types:
+      - Metale i plastik
+      - Odpady zmieszane
+      - Popiół
+      - Zielone
+      - Choinki
+      - Bio
+      - Odpady wielkogabarytowe
+      - Terminy płatności
+
+      # METALE I PLASTIK
+  - platform: waste_collection_schedule
+    name: Śmieci selektywne
+    details_format: appointment_types
+    leadtime: "3"
+    value_template: "{% if value.daysTo == 0 %}Dzisiaj{% elif value.daysTo == 1 %}Jutro{% else %} {{value.daysTo}} dni{% endif %}"
+    types:
+      - Metale i plastik
+      # ODPADY ZMIESZANE
+  - platform: waste_collection_schedule
+    name: Śmieci zmieszane
+    details_format: appointment_types
+    value_template: "{% if value.daysTo == 0 %}Dzisiaj{% elif value.daysTo == 1 %}Jutro{% else %} {{value.daysTo}} dni{% endif %}"
+    types:
+      - Odpady zmieszane
+      # POPIÓŁ
+  - platform: waste_collection_schedule
+    name: Śmieci popiół
+    details_format: appointment_types
+    value_template: "{% if value.daysTo == 0 %}Dzisiaj{% elif value.daysTo == 1 %}Jutro{% else %} {{value.daysTo}} dni{% endif %}"
+    types:
+      - Popiół
+      # ZIELONE
+  - platform: waste_collection_schedule
+    name: Śmieci zielone
+    details_format: appointment_types
+    leadtime: "3"
+    value_template: "{% if value.daysTo == 0 %}Dzisiaj{% elif value.daysTo == 1 %}Jutro{% else %} {{value.daysTo}} dni{% endif %}"
+    types:
+      - Zielone
+      # CHOINKI
+  - platform: waste_collection_schedule
+    name: Śmieci choinki
+    details_format: appointment_types
+    leadtime: "3"
+    value_template: "{% if value.daysTo == 0 %}Dzisiaj{% elif value.daysTo == 1 %}Jutro{% else %} {{value.daysTo}} dni{% endif %}"
+    types:
+      - Choinki
+      # KUCHENNE
+  - platform: waste_collection_schedule
+    name: Śmieci kuchenne
+    details_format: appointment_types
+    leadtime: "3"
+    value_template: "{% if value.daysTo == 0 %}Dzisiaj{% elif value.daysTo == 1 %}Jutro{% else %} {{value.daysTo}} dni{% endif %}"
+    types:
+      - Bio
+      # ODPADY WIELKOGABARYTOWE
+  - platform: waste_collection_schedule
+    name: Śmieci wielkogabarytowe
+    details_format: appointment_types
+    value_template: "{% if value.daysTo == 0 %}Dzisiaj{% elif value.daysTo == 1 %}Jutro{% else %} {{value.daysTo}} dni{% endif %}"
+    types:
+      - Odpady wielkogabarytowe
+      # TERMINY PŁATNOŚCI
+  - platform: waste_collection_schedule
+    name: Śmieci termin płatności
+    details_format: appointment_types
+    value_template: "{% if value.daysTo == 0 %}Dzisiaj{% elif value.daysTo == 1 %}Jutro{% else %} {{value.daysTo}} dni{% endif %}"
+    types:
+      - Terminy płatności

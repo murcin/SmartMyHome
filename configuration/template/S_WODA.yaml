@@ -1,0 +1,20 @@
+
+- sensor:
+
+######################## TEMPLATE WODA ########################
+  - name: pompa_cyrkulacji_czas_dzialania
+    state: "{{ (states('sensor.circulationpomp_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+########################## DESZCZÓWKA ########################## 
+#  - name: Poziom wody deszczowej 2
+#    state:  >
+#      {% if states('sensor.esp_poziomdeszczowki_org') == 'unavailable' %}
+#        0
+#      {% else %}
+#        {{ ((states('sensor.esp_poziomdeszczowki_org') |float *100) *(-10/11.29) +118)|int  }}  ## was + 117
+#      {% endif %}
+#    unit_of_measurement: '%'
+
+  - name: Poziom wody deszczowej
+    state: "{{ ((states('sensor.esp_poziomdeszczowki_org') |float *100) *(-10/11.29) +118)|int  }} "
+    unit_of_measurement: '%'

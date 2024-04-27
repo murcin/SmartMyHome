@@ -1,30 +1,26 @@
 
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: '/'
-    - type: disk_use
-      arg: '/'
-    - type: disk_free
-      arg: '/'
-    - type: memory_use_percent
-    - type: memory_free
-    - type: swap_use_percent
-    - type: swap_use
-    - type: swap_free
-    - type: load_1m
-    - type: load_5m
-    - type: load_15m
-    - type: processor_use
-    - type: last_boot
+#- platform: systemmonitor
+#  resources:
+#    - type: disk_use_percent
+#      arg: '/'
+#    - type: disk_use
+#      arg: '/'
+#    - type: disk_free
+#      arg: '/'
+#    - type: memory_use_percent
+#    - type: memory_free
+#    - type: swap_use_percent
+#    - type: swap_use
+#    - type: swap_free
+#    - type: load_1m
+#    - type: load_5m
+#    - type: load_15m
+#    - type: processor_use
+#    - type: last_boot
 
 ######################## POWIADOMIENIE O LOGOWANIU########################
 
-- platform: authenticated
-
-######################## SYSTEMOWE ########################
-
-- platform: uptime
+#- platform: authenticated
 
 ######################## SYSTEM DATA I CZAS ########################
     
@@ -34,24 +30,9 @@
     - 'date'
     - 'date_time'
     - 'time_date'
-    - 'beat'
+#    - 'beat'
 
 ######################## BLOK DANYCH DB ########################
-
-- platform: sql
-  db_url: !secret mariadb #rozmiar bazy danych lokalnie na HA
-  queries:
-    - name: 'MariaDB HA rozmiar'
-      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024 / 1024, 2) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
-      column: 'value'
-      unit_of_measurement: GB
-- platform: sql
-  db_url: !secret mariadb_synology #rozmiar bazy danych na synology
-  queries:
-    - name: 'MariaDB Synology rozmiar'
-      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024 / 1024, 2) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
-      column: 'value'
-      unit_of_measurement: GB  
 
 - platform: influxdb
   host: !secret influxdb_url

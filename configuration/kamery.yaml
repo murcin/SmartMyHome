@@ -1,12 +1,13 @@
 
  ############################ KAMERA ROBOROCK - ODKURZACZ ############################ 
- 
+
 - platform: xiaomi_cloud_map_extractor
   host: !secret xiaomi_vacuum_ip
   token: !secret vacuum_token
   username: !secret vacuum_user
   password: !secret vacuum_pass
   draw: ['all']
+  scan_interval: 86400
+  auto_update: false
   attributes:
   - calibration_points
-

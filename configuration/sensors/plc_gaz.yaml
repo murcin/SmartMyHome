@@ -11,34 +11,6 @@
   adstype: dint
 
 - platform: ads
-  name: Gaz rachunek Koszty stałe
-  adsvar: GVL_Gas_HA.iGazCenaKosztyStale
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: int
-
-- platform: ads
-  name: Gaz rachunek vat
-  adsvar: GVL_Gas_HA.iGazWysokoscVat
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: int
-
-- platform: ads
-  name: Gaz rachunek Paliwo gazowe koszt
-  adsvar: GVL_Gas_HA.iPaliwoGazowe_koszt
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
-
-- platform: ads
-  name: Gaz rachunek Dystrybucja zmienna koszt
-  adsvar: GVL_Gas_HA.iDystrybucjaZmienna_koszt
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: int
-
-- platform: ads
   name: Gaz Dzisiejszy koszt za gaz
   adsvar: GVL_Gas_HA.iGazUzycieDzisiejszeKoszt
   unit_of_measurement: 'zł'
@@ -51,6 +23,13 @@
   unit_of_measurement: 'zł'
   factor: 100
   adstype: dint
+
+- platform: ads
+  name: Gaz cena za 1m3
+  adsvar: GVL_Gas_HA.iGazCenaZa1m3
+  unit_of_measurement: 'PLN/m³'
+  factor: 100
+  adstype: int
 
 ## BIEŻĄCE UŻYCIE
 
@@ -75,24 +54,10 @@
   adstype: dint
 
 - platform: ads
-  name: Zużycie gazu w tym dniu w kWh    ## zużycie w danym dniu w kWh
-  adsvar: GVL_Gas_HA.iGazUzycieDzisiejsze_kWh
-  unit_of_measurement: 'kWh'
-  #factor: 100
-  adstype: dint
-
-- platform: ads
   name: Zużycie gazu w tym miesiacu         ## zużycie w danym miesiącu w m3
   adsvar: GVL_Gas_HA.iGazUzycieBiezace
   unit_of_measurement: 'm³'
   factor: 100
-  adstype: dint
-
-- platform: ads
-  name: Zużycie gazu w tym miesiacu w kWh    ## zużycie w danym miesiącu w kWh
-  adsvar: GVL_Gas_HA.iGazUzycieBiezace_kWh
-  unit_of_measurement: 'kWh'
-  #factor: 100
   adstype: dint
 
 - platform: ads
@@ -102,64 +67,27 @@
 #  factor: 100
   adstype: dint
 
-- platform: ads
-  name: Zużycie gazu w zeszłym miesiacu w kWh    ## zużycie w poprzednim miesiącu
-  adsvar: GVL_Gas_HA.iGazUzycieZeszlyMiesiac_kWh
-  unit_of_measurement: 'kWh'
-  #factor: 100
-  adstype: dint
-
-## KWOTY Z RACHUNKU
-- platform: ads
-  name: Gaz Opłata abonamentowa
-  adsvar: GVL_Gas_HA.iOplataAbonamentowa
-  unit_of_measurement: 'zł/mc'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Gas Cena gazu
-  adsvar: GVL_Gas_HA.iPaliwoGazowe
-  unit_of_measurement: 'PLN/m³'
-  factor: 100000
-  adstype: dint
-
-- platform: ads
-  name: Gas Dystrybucja Stala
-  adsvar: GVL_Gas_HA.iDystrybucjaStala
-  unit_of_measurement: 'zł/mc'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Gas Dystrybucja zmienna
-  adsvar: GVL_Gas_HA.iDystrybucjaZmienna
-  unit_of_measurement: 'zł/kWh'
-  factor: 100000
-  adstype: dint
-
-- platform: ads
-  name: Gas Współczynnik konwersji
-  adsvar: GVL_Gas_HA.iWspolczynnikKonwersji
-  factor: 10000
-  adstype: dint
-
 ######################## KOSZTY OBLICZENIA ########################
 
 - platform: ads
   name: Licznik impulsów gaz PLC godzina   ## ilość impulsów w danej godzinie
-  adsvar: P_GasMeter.iTrigerCountHour
+  adsvar: P_GasMeter.impulsy_godzina
 #  unit_of_measurement: 'impuls'
   adstype: int
 
 - platform: ads
   name: Licznik impulsów gaz PLC dzien     ## ilość impulsów w danym dniu
-  adsvar: P_GasMeter.iTrigerCount
+  adsvar: P_GasMeter.impulsy_dzien
 #  unit_of_measurement: 'impuls'
   adstype: int
 
 - platform: ads
   name: Licznik impulsów gaz PLC miesiac   ## ilość impulsów w danym miesiacu
-  adsvar: P_GasMeter.iTrigerCountMonth
+  adsvar: P_GasMeter.impulsy_miesiac
 #  unit_of_measurement: 'impuls'
+  adstype: int
+
+- platform: ads
+  name: Gaz ilosc obliczen   ## ilość wykonanych obliczeń w ciągu dnia
+  adsvar: P_GasMeter.iGasCalc
   adstype: int

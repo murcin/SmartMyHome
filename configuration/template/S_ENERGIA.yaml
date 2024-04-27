@@ -1,0 +1,454 @@
+
+- sensor:
+
+######################## ZUŻYCIE PRĄDU W DOMU - SUMA WSZYSTKIE FAZY ########################
+  - name: zuzycie_w_domu_l_all_energy
+    state: "{{ (states('sensor.zuzycie_w_domu_l1_energy')|float(0) + states('sensor.zuzycie_w_domu_l2_energy')|float(0) + states('sensor.zuzycie_w_domu_l3_energy')|float(0)) |round(2) }}"
+    unit_of_measurement: 'kWh'
+
+######################## SPRZEDANIE PRĄDU DO SIECI - SUMA WSZYSTKIE FAZY ########################
+  - name: oddane_do_sieci_l_all_energy
+    state: "{{ (states('sensor.oddane_do_sieci_l1_energy')|float(0) + states('sensor.oddane_do_sieci_l2_energy')|float(0) + states('sensor.oddane_do_sieci_l3_energy') |float(0)) |round(2) }}"
+    unit_of_measurement: 'kWh'
+
+######################## KOSZT ZUŻYTEJ ENERGII Z SIECI ########################
+# KOSZT ZUŻYTEJ ENERGII Z SIECI - DZIŚ
+  - name: cena_wykorzystanej_energii_z_sieci_dzis
+    state: "{{ (states('sensor.kupno_energii_z_sieci_energy_daily') |float(0) * states('sensor.cena_pradu')|float(0)) |round(2) }}"
+    unit_of_measurement: 'zł'
+
+# KOSZT ZUŻYTEJ ENERGII Z SIECI - MIESIĄC
+  - name: cena_wykorzystanej_energii_z_sieci_miesiac
+    state: "{{ (states('sensor.kupno_energii_z_sieci_energy_monthly') |float(0) * states('sensor.cena_pradu')|float(0)) |round(2) }}"
+    unit_of_measurement: 'zł'
+
+######################## KOSZT SPRZEDANEJ ENERGII DO SIECI ########################
+# CENA SPRZEDANEJ ENERGII DO SIECI - DZIŚ
+  - name: cena_sprzedanej_energii_do_sieci_dzis
+    state: "{{ (states('sensor.sprzedaz_energii_do_sieci_energy_daily') |float(0) * states('sensor.cena_sprzedazy_pradu')|float(0)) |round(2) }}"
+    unit_of_measurement: 'zł'
+
+# CENA SPRZEDANEJ ENERGII DO SIECI - MIESIĄC
+  - name: cena_sprzedanej_energii_do_sieci_miesiac
+    state: "{{ (states('sensor.sprzedaz_energii_do_sieci_energy_monthly') |float(0) * states('sensor.cena_sprzedazy_pradu')|float(0)) |round(2) }}"
+    unit_of_measurement: 'zł'
+
+######################## KOSZT WYPRODUKOWANEJ ENERGII Z PV ########################
+# CENA WYPRODUKOWANEJ ENERGII - DZIŚ
+  - name: cena_wyprodukowanej_energii_z_paneli_dzis
+    state: "{{ (states('sensor.solis_energy_today') |float(0) * states('sensor.cena_sprzedazy_pradu')|float(0)) |round(2) }}"
+    unit_of_measurement: 'zł'
+
+# CENA WYPRODUKOWANEJ ENERGII - MIESIĄC
+  - name: cena_wyprodukowanej_energii_z_paneli_miesiac
+    state: "{{ (states('sensor.solis_energy_this_month') |float(0) * states('sensor.cena_sprzedazy_pradu')|float(0)) |round(2) }}"
+    unit_of_measurement: 'zł'
+
+######################## AUTOKONSUMPCJA => WYPRODUKOWANA - ODDANA ########################
+# ILOŚC ZUŻYTEJ ENERGII W DOMU (WYPRODUKOWANA ENERGIA - ODDANA DO SIECI + ZUŻYTA Z SIECI)
+  - name: ilosc_energii_wykorzystanej_w_domu
+    state: "{{ (states('sensor.produkcja_energii_energy_daily') |float(0) - states('sensor.sprzedaz_energii_do_sieci_energy_daily') |float(0) ) |round(2) }}"
+    unit_of_measurement: 'kWh'
+
+######################## ZASILANIE Z SIECI LUB UPS ########################
+  - name: zasilanie_230v
+    state: >
+      {% if is_state('binary_sensor.zasilanie_230v_ok', 'off') %}
+        Sieć
+      {% else %}
+        UPS
+      {% endif %}
+    icon: >
+      {% if is_state("binary_sensor.zasilanie_230v_ok", "off") %}
+        mdi:transmission-tower
+      {% else %}
+        mdi:car-battery
+      {% endif %}
+
+# GENEROWANIE ENERGII Z PANELI PV 
+  - name: solis_ac_output_total_power_whenON
+    state: >
+      {% if is_state('sensor.solis_state', '1') %}
+        {{ states('sensor.solis_ac_output_total_power') |float(0) }}
+      {% else %}
+        0
+      {% endif %}
+    unit_of_measurement: 'W'
+  - name: Solis Status
+    state: >
+     {% if is_state('sensor.solis_state', '1') %}
+       Online
+     {% elif is_state('sensor.solis_state', '2') %}
+      Offline
+     {% else %}
+      Awaria
+     {% endif %}
+
+# SUMA ZUŻYCIE DZIENNE - Z GNIAZDKAMI POMIAROWYMI
+  - name: sum_power_devices_daily
+    state: "{{ (states('sensor.gniazdkokotlownia_piec_power')|float(0) + states('sensor.gniazdkokuchnia_zmywarka_power')|float(0) + states('sensor.gniazdkokuchnia_piekarnik_power')|float(0) + states('sensor.gniazdkokuchnia_mikrofalowka_power')|float(0) + states('sensor.gniazdkokuchnia_lodowka_power')|float(0) + states('sensor.gniazdkopralnia_pralka1_power')|float(0) + states('sensor.gniazdkopralnia_suszarka_power')|float(0) + states('sensor.gniazdkopralnia_pralka2_power')|float(0)) |round(0) }}"
+    unit_of_measurement: 'W'
+  - name: sum_power_devices_daily_cost
+    state: "{{ (states('sensor.sum_power_devices_daily') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2) }}"
+    unit_of_measurement: 'zł'
+
+# SUMA ZUŻYCIE DZIENNE - POZOSTAŁE
+  - name: sum_power_devices_other
+    unit_of_measurement: 'W'
+    state: |
+          {% if states('sensor.gniazdkozasilacz_ups_power') != 'unavailable' %}
+            {% if states('sensor.gniazdkozasilacz_ups_power') != 'unknown' %}
+              {% if states('sensor.ipower_sum') > '0' %}
+                {{states('sensor.ipower_sum')|round(0) - (states('sensor.gniazdkozasilacz_ups_power')|round(0) + states('sensor.sum_power_devices_additional')|round(0) + states('sensor.sum_power_devices_daily')|round(0)) }}
+              {% else %}
+                0
+              {% endif %}
+            {% else %}
+                0
+            {% endif %}
+          {% else %}
+              0
+          {% endif %}
+  - name: sum_power_devices_other_cost
+    state: "{{ (states('sensor.sum_power_devices_other') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2) }}"
+    unit_of_measurement: 'zł'
+
+# SUMA WSZYSTKICH GNIAZDEK DODATKOWYCH (Laptop Marcin, Biuro Marcin, Strych)
+  - name: sum_power_devices_additional
+    state: "{{ (states('sensor.gniazdkobiuro_laptop_power')|float(0) +states('sensor.attic_powercalc_power')|float(0) +states('sensor.gniazdkogabinet_paznokcie_power')|float(0)+states('sensor.gniazdkojulia_laptop_power')|float(0) +states('sensor.gniazdkojoliwia_laptop_power')|float(0)) |round(0) }}"
+    unit_of_measurement: 'W'
+  - name: sum_power_devices_additional_cost
+    state: "{{ (states('sensor.sum_power_devices_additional') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+#UPS
+  - name: ups_power
+    state: >
+      {% if is_state('binary_sensor.zasilanie_230v_ok', 'off') %}
+        {{ states('sensor.gniazdkozasilacz_ups_current') |float(0) |round(0) }}
+      {% else %}
+        0
+      {% endif %} 
+    unit_of_measurement: 'W'
+  - name: ups_current
+    state: "{{ states('sensor.gniazdkozasilacz_ups_current') |float(0) }}"
+    unit_of_measurement: 'A'
+  - name: ups_energy
+    state: "{{ states('sensor.gniazdkozasilacz_ups_energy') |float(0) }}"
+    unit_of_measurement: 'kWh'
+  - name: ups_czas_dzialania
+    state: "{{ (states('sensor.ups_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: ups_cost
+    state: "{{ (states('sensor.ups_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: ups_cost_day
+    state: "{{ ((states('sensor.ups_time_on')|float(0)*2/1000)*states('sensor.cena_pradu')|float(0))|round(2) }}"
+    unit_of_measurement: zł/doba
+
+# UPS POZOSTAŁE (różnica w zużyciu + żaluzje fasadowe)
+  - name: ups_plus_power
+    state: "{{ (states('sensor.ups_power')|float(0) -states('sensor.hp_elitedesk_g3_powercalc_round')|float(0) -states('sensor.diskstation_powercalc_round')|float(0) -states('sensor.switches_powercalc_round')|float(0)-states('sensor.router_powercalc_round')|float(0) -states('sensor.rejestrator_powercalc_power')|float(0)-states('sensor.switch_poe_powercalc_round')|float(0)-states('sensor.switch_gbn_powercalc_round')|float(0)) |round(0) }}"
+    unit_of_measurement: 'W'
+  - name: ups_plus_cost
+    state: "{{ (states('sensor.ups_plus_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+  - name: plc_czas_dzialania
+    state: "{{ (states('sensor.plc_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: plc_cost
+    state: "{{ (states('sensor.plc_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# Hp G3 EliteDesk
+  - name: hp_elitedesk_g3_czas_dzialania
+    state: "{{ (states('sensor.hp_elitedesk_g3_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: hp_elitedesk_g3_cost
+    state: "{{ (states('sensor.hp_elitedesk_g3_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+ # GNIAZDKO MONITOR 
+  - name: monitor_czas_dzialania
+    state: "{{ (states('sensor.monitor_hmi_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: monitor_cost
+    state: "{{ ( states('sensor.monitor_hmi_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: zł
+
+# SWITCH POE
+  - name: switch_poe_czas_dzialania
+    state: "{{ (states('sensor.switch_poe_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: switch_poe_cost
+    state: "{{ (states('sensor.switch_poe_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# SWITCHES
+  - name: switches_czas_dzialania
+    state: "{{ (states('sensor.switches_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: switches_cost
+    state: "{{ (states('sensor.switches_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# ROUTER
+  - name: router_czas_dzialania
+    state: "{{ (states('sensor.router_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: router_cost
+    state: "{{ (states('sensor.router_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# SWITCH OD GBN
+  - name: switch_gbn_czas_dzialania
+    state: "{{ (states('sensor.gbn_switch_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: switch_gbn_cost
+    state: "{{ (states('sensor.switch_gbn_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# ZASILACZ 24V
+  - name: zasilacz_24_czas_dzialania
+    state: "{{ (states('sensor.zasilacz_24_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: zasilacz_24_cost
+    state: "{{ (states('sensor.zasilacz_24_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# SALON MULTIMEDIA
+  - name: salon_media_czas_dzialania
+    state: "{{ (states('sensor.salon_media_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: salon_media_cost
+    state: "{{ (states('sensor.salon_media_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+ # ZMYWARKA
+  - name: zmywarka_power
+    state: "{{ states('sensor.gniazdkokuchnia_zmywarka_power') |float(0) |round(0) }}"
+    unit_of_measurement: 'W'
+  - name: zmywarka_current
+    state: "{{ states('sensor.gniazdkokuchnia_zmywarka_current') |float(0) }}"
+    unit_of_measurement: 'A'
+  - name: zmywarka_energy
+    state: "{{ states('sensor.gniazdkokuchnia_zmywarka_energy') |float(0) }}"
+    unit_of_measurement: 'kWh'
+  - name: zmywarka_czas_dzialania
+    state: "{{ (states('sensor.kuchnia_zmywarka_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: zmywarka_cost
+    state: "{{ ( states('sensor.gniazdkokuchnia_zmywarka_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: zł
+  - name: zmywarka_cost_all
+    state: "{{ (states('sensor.gniazdkokuchnia_zmywarka_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+# GNIAZDKA PIEKARNIK
+  - name: piekarnik_power
+    state: "{{ states('sensor.gniazdkokuchnia_piekarnik_power') |float(0) |round(0) }}"
+    unit_of_measurement: 'W'
+  - name: piekarnik_current
+    state: "{{ states('sensor.gniazdkokuchnia_piekarnik_current') |float(0) }}"
+    unit_of_measurement: 'A'
+  - name: piekarnik_energy
+    state: "{{ states('sensor.gniazdkokuchnia_piekarnik_energy') |float(0) }}"
+    unit_of_measurement: 'kWh'
+  - name: piekarnik_czas_dzialania
+    state: "{{ (states('sensor.kuchnia_piekarnik_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: piekarnik_cost
+    state: "{{ (states('sensor.gniazdkokuchnia_piekarnik_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: piekarnik_cost_all
+    state: "{{ (states('sensor.gniazdkokuchnia_piekarnik_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+# GNIAZDKA MIKROFALOWKA
+  - name: mikrofalowka_power
+    state: "{{ states('sensor.gniazdkokuchnia_mikrofalowka_power') |float(0) |round(0) }}"
+    unit_of_measurement: 'W'
+  - name: mikrofalowka_current
+    state: "{{ states('sensor.gniazdkokuchnia_mikrofalowka_current') |float(0) }}"
+    unit_of_measurement: 'A'
+  - name: mikrofalowka_energy
+    state: "{{ states('sensor.gniazdkokuchnia_mikrofalowka_energy') |float(0) }}"
+    unit_of_measurement: 'kWh'
+  - name: mikrofalowka_czas_dzialania
+    state: "{{ (states('sensor.kuchnia_mikrofalowka_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: mikrofalowka_cost
+    state: "{{ (states('sensor.gniazdkokuchnia_mikrofalowka_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: mikrofalowka_cost_all
+    state: "{{ (states('sensor.gniazdkokuchnia_mikrofalowka_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+# LODÓWKA
+  - name: kuchnia_lodowka_czas_dzialania
+    state: "{{ (states('sensor.kuchnia_lodowka_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: kuchnia_lodowka_cost
+    state: "{{ (states('sensor.gniazdkokuchnia_lodowka_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: kuchnia_lodowka_cost_all
+    state: "{{ (states('sensor.gniazdkokuchnia_lodowka_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+# PIEC CO
+  - name: kotlownia_piec_czas_dzialania
+    state: "{{ (states('sensor.kotlownia_piec_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: kotlownia_piec_cost
+    state: "{{ (states('sensor.gniazdkokotlownia_piec_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: kotlownia_piec_cost_all
+    state: "{{ (states('sensor.gniazdkokotlownia_piec_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+# DISKSTATION
+  - name: diskstation_czas_dzialania
+    state: "{{ (states('sensor.diskstation_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: diskstation_cost
+    state: "{{ (states('sensor.diskstation_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# REJESTRATOR
+  - name: rejestrator_czas_dzialania
+    state: "{{ (states('sensor.rejestrator_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: rejestrator_cost
+    state: "{{ (states('sensor.rejestrator_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+ 
+# ODKURZACZ ROBOROCK
+  - name: roborock_czas_dzialania
+    state: "{{ (states('sensor.roborock_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: roborock_cost
+    state: "{{ (states('sensor.roborock_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# STRYCH, WZMACNIACZ ANTENOWY
+  - name: attic_czas_dzialania
+    state: "{{ (states('sensor.attic_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: attic_cost
+    state: "{{ (states('sensor.attic_powercalc_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# PRALKA1-NOWA
+  - name: pralnia_pralka1_czas_dzialania
+    state: "{{ (states('sensor.pralnia_pralka1_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: pralnia_pralka1_cost
+    state: "{{ (states('sensor.gniazdkopralnia_pralka1_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: pralnia_pralka1_cost_all
+    state: "{{ (states('sensor.gniazdkopralnia_pralka1_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+# PRALKA2-STARA
+  - name: pralnia_pralka2_czas_dzialania
+    state: "{{ (states('sensor.pralnia_pralka2_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: pralnia_pralka2_cost
+    state: "{{ (states('sensor.gniazdkopralnia_pralka2_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: pralnia_pralka2_cost_all
+    state: "{{ (states('sensor.gniazdkopralnia_pralka2_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+# SUSZARKA
+  - name: pralnia_suszarka_czas_dzialania
+    state: "{{ (states('sensor.pralnia_suszarka_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: pralnia_suszarka_cost
+    state: "{{ (states('sensor.gniazdkopralnia_suszarka_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: pralnia_suszarka_cost_all
+    state: "{{ (states('sensor.gniazdkopralnia_suszarka_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+# GNIAZDKO LAPTOPA 
+  - name: biuro_laptop_czas_dzialania
+    state: "{{ (states('sensor.biuro_laptop_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: biuro_laptop_cost
+    state: "{{ ( states('sensor.gniazdkobiuro_laptop_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: zł
+  - name: biuro_laptop_cost_all
+    state: "{{ (states('sensor.gniazdkobiuro_laptop_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+# LAPTOP JULIA
+  - name: julia_laptop_czas_dzialania
+    state: "{{ (states('sensor.julia_laptop_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: julia_laptop_cost
+    state: "{{ (states('sensor.julia_laptop_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: julia_laptop_cost_all
+    state: "{{ (states('sensor.julia_laptop_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+ # LAPTOP OLIWIA
+  - name: oliwia_laptop_czas_dzialania
+    state: "{{ (states('sensor.oliwia_laptop_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: oliwia_laptop_cost
+    state: "{{ ( states('sensor.oliwia_laptop_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: zł
+  - name: oliwia_laptop_cost_all
+    state: "{{ (states('sensor.oliwia_laptop_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+# GABINET PAZNOKCIE
+  - name: gabinet_paznokcie_czas_dzialania
+    state: "{{ (states('sensor.gabinet_paznokcie_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: gabinet_paznokcie_cost
+    state: "{{ (states('sensor.gniazdkogabinet_paznokcie_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: gabinet_paznokcie_cost_all
+    state: "{{ (states('sensor.gniazdkogabinet_paznokcie_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+
+# BIURO ZELAZKO
+  - name: biuro_zelazko_czas_dzialania
+    state: "{{ (states('sensor.biuro_zelazko_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+  - name: biuro_zelazko_cost
+    state: "{{ (states('sensor.gniazdkobiuro_zelazko_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+  - name: biuro_zelazko_cost_all
+    state: "{{ (states('sensor.gniazdkobiuro_zelazko_energy') |float(0) *  states('sensor.cena_pradu') |float(0)) |round(2)  }}"
+    unit_of_measurement: zł
+ 
+# KOSZT UTRZYMANIA SMART HOME
+  - name: smarthome_power
+    state: "{{ (states('sensor.plc_powercalc_round')|float(0) + states('sensor.monitor_hmi_powercalc_round')|float(0)  |round(0)) |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: smarthome_cost
+    state: "{{ (states('sensor.smarthome_power') |float(0)/1000 * states('sensor.cena_pradu')|float(0)) |round(2)}}"
+    unit_of_measurement: 'zł'
+
+# ZANIK PRĄDU
+  - name: no_power_time_on_formated
+    state: "{{ (states('sensor.no_power_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+# ZAMIANA Z FLOAT NA INT ZAOKRĄGLENIA ROUND
+  - name: diskstation powercalc round
+    state: "{{ states('sensor.diskstation_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: attic powercalc round
+    state: "{{ states('sensor.attic_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: roborock powercalc round
+    state: "{{ states('sensor.roborock_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: monitor_hmi powercalc round
+    state: "{{ states('sensor.monitor_hmi_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: switch_gbn powercalc round
+    state: "{{ states('sensor.switch_gbn_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: router powercalc round
+    state: "{{ states('sensor.router_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: switches powercalc round
+    state: "{{ states('sensor.switches_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: switch_poe powercalc round
+    state: "{{ states('sensor.switch_poe_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: hp_elitedesk_g3 powercalc round
+    state: "{{ states('sensor.hp_elitedesk_g3_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: plc powercalc round
+    state: "{{ states('sensor.plc_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: zasilacz_24 powercalc round
+    state: "{{ states('sensor.zasilacz_24_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: rejestrator powercalc round
+    state: "{{ states('sensor.rejestrator_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+  - name: salon_media powercalc round
+    state: "{{ states('sensor.salon_media_powercalc_power') |int(0) }}"
+    unit_of_measurement: 'W'
+
+    

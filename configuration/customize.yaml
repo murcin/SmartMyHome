@@ -143,27 +143,19 @@ light.led_lazienka_gorna:
   icon: mdi:led-strip
 light.julia_1:
   icon: mdi:ceiling-light
-light.nocna_julia:
-  icon: mdi:coach-lamp
 light.juliawall:
   icon: mdi:coach-lamp
 light.oliwia_1:
   icon: mdi:ceiling-light
 light.oliwia_2:
   icon: mdi:ceiling-light
-light.nocna_oliwia:
-  icon: mdi:coach-lamp
 light.oliwiawall:
   icon: mdi:coach-lamp
 light.sypialnia_1:
   icon: mdi:ceiling-light
-light.marcin_sypialnia:
-  icon: mdi:coach-lamp
 light.iwona_sypialnia:
   icon: mdi:coach-lamp
 light.badroom_m_light_wall:
-  icon: mdi:coach-lamp
-light.badroom_i_light_wall:
   icon: mdi:coach-lamp
 light.garderoba_sypialnia:
   icon: mdi:ceiling-light
@@ -173,8 +165,6 @@ light.biuro_2:
   icon: mdi:ceiling-light
 light.biuro_3:
   icon: mdi:ceiling-light
-light.office_light_1:
-  icon: mdi:ceiling-light
 light.pralnia_1:
   icon: mdi:spotlight-beam
 light.pralnia_2:
@@ -183,15 +173,6 @@ light.rozdzielnica:
   icon: mdi:wall-sconce-flat
 light.strych:
   icon: mdi:ceiling-light
-  
-light.nad_drzwiami:
-  icon: mdi:outdoor-lamp
-light.nad_garazem_1:
-  icon: mdi:outdoor-lamp
-light.nad_garazem_2:
-  icon: mdi:outdoor-lamp
-light.nad_kotlownia:
-  icon: mdi:outdoor-lamp
 
 switch.zawor_wody_1_otworz:
   icon: mdi:engine
@@ -225,6 +206,8 @@ sensor.sila_wiatru_max:
   icon: mdi:weather-windy
 sensor.sila_wiatru_max_2:
   icon: mdi:weather-windy
+sensor.licznik_swiatel:
+  icon: mdi:lightbulb-group-outline
   
 switch.gniazdka_pompa:
   device_class: outlet
@@ -233,9 +216,6 @@ switch.gniazdka_pralnia_1:
   device_class: outlet
   icon: mdi:power-socket-eu
 switch.gniazdka_pralnia_2:
-  device_class: outlet
-  icon: mdi:power-socket-eu
-switch.gniazdka_przedpokoj:
   device_class: outlet
   icon: mdi:power-socket-eu
 switch.gniazdka_salon:
@@ -256,37 +236,12 @@ switch.gniazdka_tv_sypialnia:
 switch.gniazdka_tv_salon:
   device_class: outlet
   icon: mdi:television
-switch.gniazdko_zewnetrzne_pietro:
-  device_class: outlet
-  icon: mdi:power-socket-eu
 switch.gniazdka_zewnetrzne:
   device_class: outlet
   icon: mdi:power-socket-eu
 switch.gniazdka_lazienka:
   device_class: outlet
   icon: mdi:power-socket-eu
-switch.kaloryfer_lazienka_gorna:
-  device_class: outlet
-  icon: mdi:google-home
-switch.gniazdko_biuro:
-  device_class: outlet
-  icon: mdi:power-socket-eu
-switch.gniazdka_strych:
-  device_class: outlet
-  icon: mdi:power-socket-eu
-  
-sensor.koszt_pradu_miesieczny_trend:
-  icon: mdi:cash
-sensor.koszt_pradu_do_dnia_dzisiejszego:
-  icon: mdi:cash
-sensor.koszt_pradu_w_tym_miesiacu:
-  icon: mdi:cash
-sensor.koszt_gazu_w_tym_miesiacu:
-  icon: mdi:cash
-sensor.cena_pradu:
-  icon: mdi:cash
-sensor.paliwo_gazowe:
-  icon: mdi:cash
 
 sensor.voltage_l1:
   device_class: voltage
@@ -302,6 +257,10 @@ sensor.ipower_l3:
   device_class: power
 sensor.ipower_sum:
   device_class: power
+sensor.ipower_pv_sum:
+  device_class: power
+sensor.ipower_nopv_sum:
+  device_class: power
 sensor.icurrent_l1:
   device_class: current
 sensor.icurrent_l2:
@@ -312,7 +271,9 @@ sensor.icurrent_sum:
   device_class: current
   
 sensor.sum_power_devices_other:
-  device_class: energy
+  device_class: power
+sensor.sum_power_devices_other2:
+  device_class: power
 sensor.diskstation_powercalc_round:
   device_class: energy
 sensor.attic_powercalc_round:
@@ -323,17 +284,11 @@ sensor.monitor_hmi_powercalc_round:
   device_class: energy
 sensor.switch_gbn_powercalc_round:
   device_class: energy
-sensor.router_powercalc_round:
-  device_class: energy
 sensor.switches_powercalc_round:
   device_class: energy
 sensor.switch_poe_powercalc_round:
   device_class: energy
 sensor.oven_powercalc_round:
-  device_class: energy
-sensor.hp_elitedesk_g3_powercalc_round:
-  device_class: energy
-sensor.plc_powercalc_round:
   device_class: energy
 sensor.zasilacz_24_powercalc_round:
   device_class: energy
@@ -381,11 +336,57 @@ sensor.ienergy_l3:
   device_class: energy
   state_class: total_increasing
   last_reset: "1970-01-01T00:00:00+00:00"
+sensor.oddane_do_sieci_l1_energy:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.oddane_do_sieci_l2_energy:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.oddane_do_sieci_l3_energy:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.zuzycie_w_domu_l1_energy:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.zuzycie_w_domu_l2_energy:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.zuzycie_w_domu_l3_energy:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.produkcja_energii_l1:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.produkcja_energii_l2:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.produkcja_energii_l3:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+
 sensor.ienergy_sum:
   device_class: energy
   state_class: total_increasing
   last_reset: "1970-01-01T00:00:00+00:00"
 
+sensor.solis_ac_output_total_power_whenon:
+  device_class: power
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+
+sensor.smarthome_power:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
 sensor.plc_power:
   device_class: power
   state_class: total_increasing
@@ -406,7 +407,7 @@ sensor.switches_power:
   state_class: total_increasing
   last_reset: "1970-01-01T00:00:00+00:00"
   unit_of_measurement: 'W'
-sensor.router_power:
+sensor.router_powercalc_round:
   device_class: power
   state_class: total_increasing
   last_reset: "1970-01-01T00:00:00+00:00"
@@ -462,4 +463,21 @@ sensor.attic_power:
   last_reset: "1970-01-01T00:00:00+00:00"
   unit_of_measurement: 'W'
 
+
+sensor.solis_energy_total:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.solis_energy_today:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.solis_energy_this_year:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
+sensor.solis_energy_this_month:
+  device_class: energy
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"
 

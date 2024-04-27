@@ -1,24 +1,37 @@
 
 ######################## CZUJNIKI DRZWI PARTER ########################
 
-- platform: ads
-  name: doors_all
-  device_class: door
-  adsvar: GVL_Sensors.bDOOR_SENSOR_ALL_P0
+#- platform: ads
+#  name: doors_all
+#  device_class: door
+#  adsvar: GVL_Sensors.bDOOR_SENSOR_ALL_P0
+#- platform: ads
+#  name: door_boiler
+#  device_class: door
+#  adsvar: GVL_Sensors.bDOOR_SENSOR_BOILER_EXIT
+#- platform: ads
+#  name: door_entrance
+#  device_class: door
+#  adsvar: GVL_Sensors.bDOOR_SENSOR_ENTRANCEHALL_EXIT
+#- platform: ads
+#  name: door_attic
+#  device_class: door
+#  adsvar: GVL_SENSORS.bDOOR_SENSOR_ATTIC
 
 - platform: ads
-  name: door_boiler
+  name: Wszystkie drzwi
   device_class: door
-  adsvar: GVL_Sensors.bDOOR_SENSOR_BOILER_EXIT
+  adsvar: GVL_Drzwi.WszystkieDrzwi
 - platform: ads
-  name: door_entrance
+  name: Drzwi kotłownia
   device_class: door
-  adsvar: GVL_Sensors.bDOOR_SENSOR_ENTRANCEHALL_EXIT
-
-
-######################## CZUJNIKI DRZWI STRYCH ########################
-
+  adsvar: GVL_Drzwi.HA_DrzwiWejsciowe_Kotlownia
 - platform: ads
-  name: door_attic
+  name: Drzwi wejściowe
   device_class: door
-  adsvar: GVL_SENSORS.bDOOR_SENSOR_ATTIC
+  adsvar: GVL_Drzwi.HA_DrzwiWejsciowe
+- platform: ads
+  name: Wyłaz strych
+  device_class: door
+  adsvar: GVL_Drzwi.HA_Drzwi_Strych
+

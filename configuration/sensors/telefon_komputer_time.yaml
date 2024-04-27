@@ -1,0 +1,129 @@
+
+######################## CZASY ZAŁĄCZONYCH KOMPUTERÓW ########################
+
+- platform: history_stats
+  name: laptop_marcin_czas_aktywny_time
+  entity_id: binary_sensor.ping_laptop_marcin_w
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    laptop_marcin_czas_aktywny:
+      value_template: "{{ (states('sensor.laptop_marcin_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+
+- platform: history_stats
+  name: laptop_marcin_czas_aktywny_time_LAN
+  entity_id: binary_sensor.ping_laptop_marcin_l
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    laptop_marcin_czas_aktywny_lan:
+      value_template: "{{ (states('sensor.laptop_marcin_czas_aktywny_time_lan') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+- platform: history_stats
+  name: laptop_iwona_czas_aktywny_time
+  entity_id: binary_sensor.ping_laptop_iwona_w
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    laptop_iwona_czas_aktywny:
+      value_template: "{{ (states('sensor.laptop_iwona_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+
+- platform: history_stats
+  name: laptop_iwona_czas_aktywny_time_LAN
+  entity_id: binary_sensor.ping_laptop_iwona_l
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    laptop_iwona_czas_aktywny_lan:
+      value_template: "{{ (states('sensor.laptop_iwona_czas_aktywny_time_lan') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+- platform: history_stats
+  name: laptop_julia_czas_aktywny_time
+  entity_id: binary_sensor.ping_laptop_julia_w
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    laptop_julia_czas_aktywny:
+      value_template: "{{ (states('sensor.laptop_julia_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+
+- platform: history_stats
+  name: laptop_julia_czas_aktywny_time_LAN
+  entity_id: binary_sensor.ping_laptop_julia_l
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    laptop_julia_czas_aktywny_lan:
+      value_template: "{{ (states('sensor.laptop_julia_czas_aktywny_time_lan') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+
+- platform: history_stats
+  name: laptop_oliwia_czas_aktywny_time
+  entity_id: binary_sensor.ping_laptop_oliwia_w
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: template
+  sensors:
+    laptop_oliwia_czas_aktywny:
+      value_template: "{{ (states('sensor.laptop_oliwia_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+- platform: history_stats
+  name: laptop_oliwia_czas_aktywny_time_LAN
+  entity_id: binary_sensor.ping_laptop_oliwia_l
+  state: 'On'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: template
+  sensors:
+    laptop_oliwia_czas_aktywny_lan:
+      value_template: "{{ (states('sensor.laptop_oliwia_czas_aktywny_time_lan') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+######################## CZASY ZAŁĄCZONYCH TABLETÓW ########################
+- platform: history_stats
+  name: tablet_home_czas_aktywny time
+  entity_id: binary_sensor.tablet_home_device_locked
+  state: 'off'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: template
+  sensors:
+    tablet_home_czas_aktywny:
+      value_template: "{{ (states('sensor.tablet_home_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas używania tabletu home'
+
+- platform: history_stats
+  name: tablet_marcin_czas_aktywny time
+  entity_id: binary_sensor.tablet_marcin_device_locked
+  state: 'off'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: template
+  sensors:
+    tablet_marcin_czas_aktywny:
+      value_template: "{{ (states('sensor.tablet_marcin_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas używania tabletu marcin'

@@ -2,130 +2,64 @@
 ######################## CZUJNIKI ZALANIA PARTER ########################
 
 - platform: ads
-  name: water_sensor_down
-  adsvar: GVL_water.I_water_sensor_floor0
-  device_class: problem  
+  name: Czujnik zalania parter
+  adsvar: GVL_Woda_HA.HA_CzujnikiZalania_Parter
+  device_class: safety  
 - platform: ads
-  name: water_sensor_down_was_detect
-  adsvar: GVL_water.b_water_sensor_floor0_NOK
+  name: Wykryto zalanie parter
+  adsvar: GVL_Woda.WykryteZalanie_Parter
   device_class: problem
 
 ######################## CZUJNIKI ZALANIA PIĘTRO ########################
 
 - platform: ads
-  name: water_sensor_up
-  adsvar: GVL_water.I_water_sensor_floor1
+  name: Czujnik zalania pietro
+  adsvar: GVL_Woda_HA.HA_CzujnikiZalania_Pietro
+  device_class: safety
+- platform: ads
+  name: Wykryto zalanie piętro
+  adsvar: GVL_Woda.WykryteZalanie_Pietro
   device_class: problem
-- platform: ads
-  name: water_sensor_up_was_detect
-  adsvar: GVL_water.b_water_sensor_floor1_NOK
-  device_class: problem
-
-######################## CZUJNIKI ZAWORÓW WODY PARTER ########################
-
-- platform: ads
-  name: water_valve_in_1
-  adsvar: GVL_Sensors.bWater_1_CLO
-  device_class: moving  
-- platform: ads
-  name: water_valve_in_2
-  adsvar: GVL_Sensors.bWater_1_OPN
-  device_class: moving  
-- platform: ads
-  name: water_valve_in_3
-  adsvar: GVL_Sensors.bWater_2_CLO
-  device_class: moving  
-- platform: ads
-  name: water_valve_in_4
-  adsvar: GVL_Sensors.bWater_2_OPN
-  device_class: moving  
-- platform: ads
-  name: water_valve_in_5
-  adsvar: GVL_Sensors.bWater_3_CLO
-  device_class: moving  
-- platform: ads
-  name: water_valve_in_6
-  adsvar: GVL_Sensors.bWater_3_OPN
-  device_class: moving  
-- platform: ads
-  name: water_valve_out_1
-  adsvar: GVL_IO.bOutput_A4[1].bIO
-  device_class: power 
-- platform: ads
-  name: water_valve_out_2
-  adsvar: GVL_IO.bOutput_A4[2].bIO
-  device_class: power 
-- platform: ads
-  name: water_valve_out_3
-  adsvar: GVL_IO.bOutput_A4[3].bIO
-  device_class: power 
-- platform: ads
-  name: water_valve_out_4
-  adsvar: GVL_IO.bOutput_A4[4].bIO
-  device_class: power 
-- platform: ads
-  name: water_valve_out_5
-  adsvar: GVL_IO.bOutput_A4[5].bIO
-  device_class: power 
-- platform: ads
-  name: water_valve_out_6
-  adsvar: GVL_IO.bOutput_A4[6].bIO
-  device_class: power 
-
-######################## TRYB PRACY ZAWORÓW WODY PARTER ########################
-
-- platform: ads
-  name: water_valve_1_opening
-  adsvar: P_BOILER.bValve_opening_1
-  device_class: running 
-- platform: ads
-  name: water_valve_2_opening
-  adsvar: P_BOILER.bValve_opening_2
-  device_class: running 
-- platform: ads
-  name: water_valve_3_opening
-  adsvar: P_BOILER.bValve_opening_3
-  device_class: running 
-- platform: ads
-  name: water_valve_1_closing
-  adsvar: P_BOILER.bValve_closing_1
-  device_class: running 
-- platform: ads
-  name: water_valve_2_closing
-  adsvar: P_BOILER.bValve_closing_2
-  device_class: running 
-- platform: ads
-  name: water_valve_3_closing
-  adsvar: P_BOILER.bValve_closing_3
-  device_class: running 
 
 ######################## POMA CYRKULACJI ########################
 
 - platform: ads
   name: Pompa cykulacji automat
-  adsvar: P_BOILER.fbbadhw2p.bLd
+  adsvar: P_Kotlownia.fb_PompaCyrkulacji.bLd
   device_class: plug  
-  
-- platform: ads
-  name: Zezwolenie na uruchomienie pompy
-  adsvar: P_BOILER.bRelease
-  
-######################## PRALKA I PRALNIA ########################
 
 - platform: ads
-  name: Pralka
-  adsvar: P_BOILER.bWashing
+  name: Zezwolenie na uruchomienie pompy
+  adsvar: P_Kotlownia.PompaCyrkulacji_Zezwolenie
+
+######################## PRALKA, SUSZARKAI PRALNIA ########################
+
 - platform: ads
-  name: Pranie oczekiwanie
-  adsvar: P_BOILER.bWashingWaiting
+  name: Pralka1
+  adsvar: P_Kotlownia.bWashing1
+- platform: ads
+  name: Pranie1 oczekiwanie
+  adsvar: P_Kotlownia.bWashingWaiting1
+- platform: ads
+  name: Pralka2
+  adsvar: P_Kotlownia.bWashing2
+- platform: ads
+  name: Pranie2 oczekiwanie
+  adsvar: P_Kotlownia.bWashingWaiting2
+- platform: ads
+  name: Suszarka
+  adsvar: P_Kotlownia.bDryMachine
+- platform: ads
+  name: Suszarka oczekiwanie
+  adsvar: P_Kotlownia.bDryMachineWaiting
 
 ######################## ZMYWARKA NACZYŃ ########################
 
 - platform: ads
   name: Zmywarka
-  adsvar: P_BOILER.bDishMachine
+  adsvar: P_Kotlownia.bDishMachine
 - platform: ads
   name: Zmywarka oczekiwanie
-  adsvar: P_BOILER.bDishMachineWaiting
+  adsvar: P_Kotlownia.bDishMachineWaiting
 
 

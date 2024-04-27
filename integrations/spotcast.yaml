@@ -1,5 +1,14 @@
 
 ######################################## SPOTCAST ########################################
+
 spotcast:
-  sp_dc: !secret spotcast_sp_dc
-  sp_key: !secret spotcast_sp_key
+  sp_dc: !secret spotcast_marcin_sp_dc
+  sp_key: !secret spotcast_marcin_sp_key
+#  country: PL #optional, added in 3.6.24
+  accounts:
+    julia:
+      sp_dc: !secret spotcast_julia_sp_dc
+      sp_key: !secret spotcast_julia_sp_key
+    oliwia:
+      sp_dc: !secret spotcast_oliwia_sp_dc
+      sp_key: !secret spotcast_oliwia_sp_key

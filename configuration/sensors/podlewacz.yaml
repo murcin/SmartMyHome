@@ -1,0 +1,6 @@
+  - platform: rest
+    resource: https://podlewa.cz/status/vpxghcnBbt4dr6E0yEFcDsC25E8vtasa/
+    name: podlewa_cz
+    value_template: "{{ value }}"
+    method: GET    
+    scan_interval: 3600
