@@ -3,43 +3,40 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-automation:             !include automations.yaml
-automation spit:        !include_dir_list ./configuration/automations
-binary_sensor:          !include_dir_merge_list ./configuration/binary_sensors
-#climate:                !include ./configuration/climate.yaml
-cover:                  !include_dir_merge_list ./configuration/covers
-group:                  !include ./configuration/groups.yaml
-light:                  !include_dir_merge_list ./configuration/lights
-script:                 !include_dir_merge_named ./configuration/scripts
-scene:                  !include ./configuration/scenes.yaml
-sensor:                 !include_dir_merge_list ./configuration/sensors
-switch:                 !include_dir_merge_list ./configuration/switches
-template:               !include_dir_merge_list ./configuration/template
-
-camera:                 !include ./configuration/kamery.yaml
-google_assistant:       !include google_assistant.yaml
-input_number:           !include_dir_merge_named ./configuration/input_number
-input_select:           !include_dir_named ./configuration/input_select
-recorder:               !include ./configuration/recorder.yaml
-influxdb:               !include ./configuration/influxdb.yaml
-sensor system:          !include ./configuration/system_sensor.yaml
+automation:                 !include ./configuration/automations.yaml
+automation spit:            !include_dir_list ./configuration/automations
+binary_sensor:              !include_dir_merge_list ./configuration/binary_sensors
+climate:                    !include_dir_merge_list ./configuration/climate
+cover:                      !include_dir_merge_list ./configuration/covers
+group:                      !include ./configuration/groups.yaml
+light:                      !include_dir_merge_list ./configuration/lights
+script:                     !include_dir_merge_named ./configuration/scripts
+scene:                      !include ./configuration/scenes.yaml
+sensor:                     !include_dir_merge_list ./configuration/sensors
+switch:                     !include_dir_merge_list ./configuration/switches
+template:                   !include_dir_merge_list ./configuration/template
+mqtt:                       !include ./configuration/mqtt.yaml
+#utility_meter:              !include ./configuration/utility_meter.yaml
+camera:                     !include ./configuration/kamery.yaml
+google_assistant:           !include ./configuration/google_assistant.yaml
+input_number:               !include_dir_merge_named ./configuration/input_number
+input_select:               !include_dir_named ./configuration/input_select
+recorder:                   !include ./configuration/recorder.yaml
+influxdb:                   !include ./configuration/influxdb.yaml
+sensor system:              !include ./configuration/system_sensor.yaml
+powercalc:                  !include ./configuration/powercalc.yaml
+#device_tracker:            !include ./configuration/device_tracker.yaml
+#modbus:                     !include solis.yaml
 
 ######################################## THEME ########################################
 frontend:
-  themes:               !include_dir_merge_named themes/ 
-lovelace:               !include ./configuration/lovelace.yaml
+  themes:               !include_dir_merge_named themes
 
 ######################################## SYSTEMOWE ########################################
 
-api:
-
-zha:
-  zigpy_config:
-    ota:
-      ikea_provider: true                        # Auto update Trådfri devices
-      #ledvance_provider: true                    # Auto update LEDVANCE devices
-      #salus_provider: true                       # Auto update SALUS devices
-      #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
+#lovelace:
+#  mode: storage
+#  dashboards: !include dashboards/dashboards.yaml
 
 http:
    ip_ban_enabled: true
