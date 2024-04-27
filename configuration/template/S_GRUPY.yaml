@@ -1,0 +1,82 @@
+
+######################## LICZNIK WYKORZYSTANYCH ELEMENToW ########################
+
+- sensor:
+  - name: count_automation
+    state: "{{ states.automation | count }}"
+    unit_of_measurement: "sztuk"
+  - name: count_lights
+    state: "{{ states.light | count }}"
+    unit_of_measurement: "sztuk"
+  - name: count_switches
+    state: "{{ states.switch | count }}"
+    unit_of_measurement: "sztuk"
+  - name: count_binary_sensor
+    state: "{{ states.binary_sensor | count }}"
+    unit_of_measurement: "sztuk"
+  - name: count_sensor
+    state: "{{ states.sensor | count }}"
+    unit_of_measurement: "sztuk"
+  - name: count_script
+    state: "{{ states.script | count }}"
+    unit_of_measurement: "sztuk"
+  - name: Licznik swiatel
+    state: '{{ states.light|selectattr("state", "equalto", "on") |list|length -3}}'
+  - name: Licznik wlącznikow
+    state: '{{ states.switch|selectattr("state", "equalto", "on") |list|length }}'
+
+  - name: uslugi_add_on_count_on
+    state: "{{expand('group.uslugi_add_on') | selectattr ('state','eq','on') | list | count }}"
+  - name: uslugi_add_on_count_off
+    state: "{{expand('group.uslugi_add_on') | selectattr ('state','eq','off') | list | count }}"
+
+  - name: otwarte_okna_parter
+    state: "{{expand('group.window_sensor_p0') | selectattr ('state','eq','on') | list | count }}"
+    icon: >
+      {% if is_state("group.window_sensor_p0", "on") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: otwarte_okna_pietro
+    state: "{{expand('group.window_sensor_p1') | selectattr ('state','eq','on') | list | count }}"
+    icon: >
+      {% if is_state("group.window_sensor_p1", "on") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: otwarte_drzwi_zewnetrznych_parter
+    state: "{{expand('group.doorandgate_p0') | selectattr ('state','eq','on') | list | count }}"
+    icon: >
+      {% if is_state("group.doorandgate_p0", "on") %}
+        mdi:door-open
+      {% else %}
+        mdi:door-closed
+      {% endif %}
+  - name: otwarte_drzwi_parter
+    state: "{{expand('group.door_p0') | selectattr ('state','eq','on') | list | count }}"
+    icon: >
+      {% if is_state("group.door_p0", "on") %}
+        mdi:door-open
+      {% else %}
+        mdi:door-closed
+      {% endif %}
+  - name: otwarte_drzwi_pietro
+    state: "{{expand('group.door_p1') | selectattr ('state','eq','on') | list | count }}"
+    icon: >
+      {% if is_state("group.door_p1", "on") %}
+        mdi:door-open
+      {% else %}
+        mdi:door-closed
+      {% endif %}
+
+  - name: input_select informacje
+    state: "{{ state_attr('input_select.informacje', 'options') | count }}"
+    icon: mdi:format-list-numbered
+  - name: input_select ostrzezenia
+    state: "{{ state_attr('input_select.warnings', 'options') | count }}"
+    icon: mdi:format-list-numbered
+  - name: input_select alarmy
+    state: "{{ state_attr('input_select.alarmy', 'options') | count }}"
+    icon: mdi:format-list-numbered

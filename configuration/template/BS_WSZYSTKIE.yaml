@@ -1,0 +1,123 @@
+
+- binary_sensor:
+########################## BRAMY I FURTKI ##########################
+  - name: Brama garazowa
+    state: "{{ is_state('binary_sensor.garage_closed', 'off') }}"
+    device_class: door
+    icon: >
+      {% if is_state("binary_sensor.garage_opened", "on") %}
+        mdi:garage-open-variant
+      {% elif is_state('binary_sensor.garage_closed', 'on') %}
+        mdi:garage-variant
+      {% else %}
+        mdi:garage-alert-variant
+      {% endif %}
+  - name: Brama wjazdowa
+    state: "{{ is_state('binary_sensor.entrance_gate_closed', 'off') }}"
+    device_class: door
+    icon: >
+      {% if is_state("binary_sensor.entrance_gate_opened", "on") %}
+        mdi:gate-open
+      {% elif is_state('binary_sensor.entrance_gate_closed', 'on') %}
+        mdi:gate
+      {% else %}
+        mdi:gate-arrow-right
+      {% endif %}
+  - name: Brama goscinna
+    state: "{{ is_state('binary_sensor.entrance_gate_guest', 'off') }}"
+    device_class: door
+    icon: >
+      {% if is_state("binary_sensor.entrance_gate_guest", "off") %}
+        mdi:gate-open
+      {% else %}
+        mdi:gate
+      {% endif %}
+
+  - name: Przyszedł list
+    state: "{{ is_state('binary_sensor.list_w_skrzynce', 'on') }}"
+    icon: >
+      {% if is_state("binary_sensor.list_w_skrzynce", "on") %}
+        mdi:mailbox-outline
+      {% else %}
+        mdi:email-receive-outline
+      {% endif %}
+
+########################## URZĄDZENIA W SIECI ##########################
+  - name: binary switch_gbn
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary router
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary switches
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary switch_poe
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary oven
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary hp_elitedesk_g3
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary plc
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary zasilacz_24
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary roborock
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary oven
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary rejestrator
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary smart_home
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+
+########################## PILOT HARMONY ##########################
+  - name: Pilot Harmony
+    state: "{{ is_state('input_select.remote_select','Harmony') }}"
+    icon: mdi:remote
+  - name: Pilot Telewizor
+    state: "{{ is_state('input_select.remote_select','Telewizor') }}"
+    icon: mdi:television
+  - name: Pilot Amplituner
+    state: "{{ is_state('input_select.remote_select','Amplituner') }}"
+    icon: mdi:audio-video
+  - name: Pilot Xbox 360
+    state: "{{ is_state('input_select.remote_select','Xbox 360') }}"
+    icon: mdi:microsoft-xbox
+  - name: Pilot DVD
+    state: "{{ is_state('input_select.remote_select','DVD') }}"
+    icon: mdi:disc-player
+
+########################## TELEFONY - dla iPhone nie działą ##########################
+  - name: oliwia telefon nieaktywny
+    state: "{{ is_state('binary_sensor.telefon_oliwia_device_locked', 'off') }}"
+  - name: julia telefon nieaktywny
+    state: "{{ is_state('binary_sensor.telefon_julia_device_locked', 'off') }}"
+  - name: iwona telefon nieaktywny
+    state: "{{ is_state('binary_sensor.telefon_iwona_device_locked', 'off') }}"
+  - name: marcin telefon nieaktywny
+    state: "{{ is_state('binary_sensor.telefon_marcin_device_locked', 'off') }}"
+
+  - name: oliwia telefon aktywny
+    state: "{{ is_state('binary_sensor.telefon_oliwia_device_locked', 'on') }}"
+  - name: julia telefon aktywny
+    state: "{{ is_state('binary_sensor.telefon_julia_device_locked', 'on') }}"
+  - name: iwona telefon aktywny
+    state: "{{ is_state('binary_sensor.telefon_iwona_device_locked', 'on') }}"
+  - name: marcin telefon aktywny
+    state: "{{ is_state('binary_sensor.telefon_marcin_device_locked', 'on') }}"
+
+  - name: tablet_marcin_aktywny
+    state: "{{ is_state('binary_sensor.tablet_marcin_device_locked', 'off') }}"
+  - name: tablet_home_aktywny
+    state: "{{ is_state('binary_sensor.tablet_home_device_locked', 'off') }}"
+
+  - name: tablet_marcin_nieaktywny
+    state: "{{ is_state('binary_sensor.tablet_marcin_device_locked', 'on') }}"
+  - name: tablet_home_nieaktywny
+    state: "{{ is_state('binary_sensor.tablet_home_device_locked', 'on') }}"
+
+########################## OGRZEWANIE VAILLANT ##########################
+  - name: Ogrzewanie_Parter_grzeje
+    state: "{{ is_state('sensor.nasznowydom_circuit_0_state','HEATING') }}"
+    icon: mdi:heat-wave
+  - name: Ogrzewanie_Pietro_grzeje
+    state: "{{ is_state('sensor.nasznowydom_circuit_1_state','HEATING') }}"
+    icon: mdi:heat-wave

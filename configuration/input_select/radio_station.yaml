@@ -1,15 +1,33 @@
 
 ################## WYBÓR RADIO STACJI ################## 
 
-name: 'Wybór radio stacji:'
+name: 'Wybierz Stację Radiową:'
 options:
-- RMF FM
-- RMF Classisc
-- Meloradio
-- RadioZET
-- Jedynka
-- Dwójka
-- Trójka
-- Spotyfy
-- Custom Station
+  - RMF FM
+  - RMF MAXX
+  - RMF Classisc
+  - AntyRadio
+  - Absolute Radio Classisc Rock
+  - Meloradio
+  - Muzo Radio
+  - RadioZET
+  - ChilliZet
+  - Eska
+  - Złote przeboje
+  - Open FM-Na Cały Dzień
+  - Open FM-Praca
+  - Open FM-90`s Hits
+  - Open FM-Polski Rock
+  - Open FM-Classic Rock
+  - Open FM-Bieganie
+  - Jedynka
+  - Dwójka
+  - Trójka
+  - Spotify Daily Mix 1
+  - Spotify Daily Mix 2
+  - Spotify Daily Mix 3
+  - Spotify Daily Mix 4
+  - Spotify Trening 2022
+  - Spotify Uśmiechnij się
 initial: RMF FM
+icon: mdi:radio

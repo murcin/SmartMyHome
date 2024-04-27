@@ -4,36 +4,27 @@
   # dzwonek włączony
 - platform: ads
   name: Dzwonek
-  adsvar: GVL_PowerSocket.bRing_rel
+  adsvar: GVL_Gniazdka.DzwonekZezwolenie
 
   # furtka otwarcie
 - platform: ads
   name: Furtka zewnętrzna
-  adsvar: P_OUTSITE.bWicket_HMI_OPN
-    
-  # śmietnik otwarcie
-- platform: ads
-  name: Furtka śmieci
-  adsvar: P_OUTSITE.bWicket2_HMI_OPN
-    
+  adsvar: P_BramyFurtki.Furtka_HMI
+
   # brama garażowa
 - platform: ads
   name: Brama garażowa SBS
-  adsvar: P_GARAGE.bGate_hmi_SBS
-- platform: ads
-  name: Brama garażowa otwórz
-  adsvar: P_GARAGE.bGate_hmi_UP
-- platform: ads
-  name: Brama garażowa zamknij
-  adsvar: P_GARAGE.bGate_hmi_DWN
-    
+  adsvar: P_BramyFurtki.BramaGarazowa_HMI
+
   # brama wjazdowa 
 - platform: ads
   name: Brama wjazdowa SBS
-  adsvar: P_OUTSITE.bEntryGate_hmi_SBS
+  adsvar: P_BramyFurtki.BramaWjazdowa_HMI
+
 - platform: ads
-  name: Brama wjazdowa otwórz
-  adsvar: P_OUTSITE.bEntryGate_hmi_OPN
+  name: Brama i furtka mostek
+  adsvar: GVL_Alarm.bPhoneBridge
+
 - platform: ads
-  name: Brama wjazdowa zamknij
-  adsvar: P_OUTSITE.bEntryGate_hmi_CLO
+  name: Furtka MostekTymczasowy
+  adsvar: GVL_Bramy_Furtki.MostekTymczasowy

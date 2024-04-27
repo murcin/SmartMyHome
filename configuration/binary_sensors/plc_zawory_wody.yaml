@@ -1,0 +1,79 @@
+
+######################## CZUJNIKI ZAWORÓW WODY PARTER ########################
+
+- platform: ads
+  name: ZaworWody_1_IN1
+  adsvar: GVL_Zawory.ZaworWody_1_IN1
+  device_class: moving  
+- platform: ads
+  name: ZaworWody_1_IN2
+  adsvar: GVL_Zawory.ZaworWody_1_IN2
+  device_class: moving  
+- platform: ads
+  name: ZaworWody_2_IN1
+  adsvar: GVL_Zawory.ZaworWody_2_IN1
+  device_class: moving  
+- platform: ads
+  name: ZaworWody_2_IN2
+  adsvar: GVL_Zawory.ZaworWody_2_IN2
+  device_class: moving  
+- platform: ads
+  name: ZaworWody_3_IN1
+  adsvar: GVL_Zawory.ZaworWody_3_IN1
+  device_class: moving
+- platform: ads
+  name: ZaworWody_3_IN2
+  adsvar: GVL_Zawory.ZaworWody_3_IN2
+  device_class: moving
+
+- platform: ads
+  name: ZaworWody_1_OUT1
+  adsvar: GVL_Zawory.ZaworWody_1_OUT1
+  device_class: power
+- platform: ads
+  name: ZaworWody_1_OUT2
+  adsvar: GVL_Zawory.ZaworWody_1_OUT2
+  device_class: power
+- platform: ads
+  name: ZaworWody_2_OUT1
+  adsvar: GVL_Zawory.ZaworWody_2_OUT1
+  device_class: power
+- platform: ads
+  name: ZaworWody_2_OUT2
+  adsvar: GVL_Zawory.ZaworWody_2_OUT2
+  device_class: power
+- platform: ads
+  name: ZaworWody_3_OUT1
+  adsvar: GVL_Zawory.ZaworWody_3_OUT1
+  device_class: power
+- platform: ads
+  name: ZaworWody_3_OUT2
+  adsvar: GVL_Zawory.ZaworWody_3_OUT2
+  device_class: power
+
+######################## TRYB PRACY ZAWORÓW WODY PARTER ########################
+
+- platform: ads
+  name: ZaworWody_1_Otwieranie
+  adsvar: GVL_Zawory.ZaworWody_1_Otwieranie
+  device_class: running 
+- platform: ads
+  name: ZaworWody_2_Otwieranie
+  adsvar: GVL_Zawory.ZaworWody_2_Otwieranie
+  device_class: running 
+- platform: ads
+  name: ZaworWody_3_Otwieranie
+  adsvar: GVL_Zawory.ZaworWody_3_Otwieranie
+  device_class: running 
+- platform: ads
+  name: ZaworWody_1_Zamykanie
+  adsvar: GVL_Zawory.ZaworWody_1_Zamykanie
+  device_class: running 
+- platform: ads
+  name: ZaworWody_2_Zamykanie
+  adsvar: GVL_Zawory.ZaworWody_2_Zamykanie
+  device_class: running 
+- platform: ads
+  name: ZaworWody_3_Zamykanie
+  adsvar: GVL_Zawory.ZaworWody_3_Zamykanie
+  device_class: running 

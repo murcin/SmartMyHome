@@ -2,12 +2,12 @@
 ######################## SYSTEMOWE ########################
 
 - platform: ads
-  name: AlwaysTrue
+  name: alwaystrue
   adsvar: GVL.bTrue
-
+  
 - platform: ads
   name: Ring_button
-  adsvar: HomeAssistant.bDzwonek_Przycisk
+  adsvar: P_BramyFurtki.bDzwonek_Przycisk
 
 - platform: ads
   name: Slonce_full
@@ -25,22 +25,5 @@
   adsvar: P_System.bBrakWiatru_2m
 
 - platform: ads
-  name: LifeBitPLC
-  adsvar: P_SYSTEM.bLifeBit
-    
-- platform: ads
-  name: LifeBitPLC HA
-  adsvar: P_SYSTEM.bLifeBitHA
-- platform: ads
-  name: LifeBitPLC HA error
-  adsvar: P_SYSTEM.bLifeBitHAerror
-
-- platform: ads
   name: Testowy bool 1
   adsvar: P_SYSTEM.bTestowy1
-- platform: ads
-  name: Testowy bool 2
-  adsvar: P_SYSTEM.bTestowy2
-- platform: ads
-  name: Testowy bool 3
-  adsvar: P_SYSTEM.bTestowy3

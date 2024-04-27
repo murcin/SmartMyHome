@@ -3,134 +3,121 @@
 
 - platform: ads
   name: blind_1_pos
-  adsvar: GVL_BLINDS.st_BLINDS[1].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[1].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_2_pos
-  adsvar: GVL_BLINDS.st_BLINDS[2].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[2].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_3_pos
-  adsvar: GVL_BLINDS.st_BLINDS[3].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[3].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_4_pos
-  adsvar: GVL_BLINDS.st_BLINDS[4].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[4].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_5_pos
-  adsvar: GVL_BLINDS.st_BLINDS[5].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[5].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_6_pos
-  adsvar: GVL_BLINDS.st_BLINDS[6].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[6].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_7_pos
-  adsvar: GVL_BLINDS.st_BLINDS[7].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[7].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_8_pos
-  adsvar: GVL_BLINDS.st_BLINDS[8].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[8].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_9_pos
-  adsvar: GVL_BLINDS.st_BLINDS[9].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[9].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_10_pos
-  adsvar: GVL_BLINDS.st_BLINDS[10].iActlPos
+  adsvar: GVL_Zaluzje.Zaluzje[10].iActlPos
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_1_lms
-  adsvar: GVL_BLINDS.st_BLINDS[1].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[1].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_2_lms
-  adsvar: GVL_BLINDS.st_BLINDS[2].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[2].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_3_lms
-  adsvar: GVL_BLINDS.st_BLINDS[3].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[3].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_4_lms
-  adsvar: GVL_BLINDS.st_BLINDS[4].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[4].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_5_lms
-  adsvar: GVL_BLINDS.st_BLINDS[5].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[5].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_6_lms
-  adsvar: GVL_BLINDS.st_BLINDS[6].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[6].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_7_lms
-  adsvar: GVL_BLINDS.st_BLINDS[7].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[7].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_8_lms
-  adsvar: GVL_BLINDS.st_BLINDS[8].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[8].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_9_lms
-  adsvar: GVL_BLINDS.st_BLINDS[9].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[9].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
 - platform: ads
   name: blind_10_lms
-  adsvar: GVL_BLINDS.st_BLINDS[10].iActlAngl
-  unit_of_measurement: '%'
-  factor: 100
-  adstype: int
-  
-- platform: ads
-  name: blind_11_pos
-  adsvar: GVL_BLINDS.st_BLINDS[11].iActlPos
-  unit_of_measurement: '%'
-  factor: 100
-  adstype: int
-- platform: ads
-  name: blind_11_lms
-  adsvar: GVL_BLINDS.st_BLINDS[11].iActlAngl
+  adsvar: GVL_Zaluzje.Zaluzje[10].iActlAngl
   unit_of_measurement: '%'
   factor: 100
   adstype: int
@@ -138,64 +125,52 @@
 ######################## OSTATNIE URUCHOMIENIE ŻALUZJI ########################
 - platform: ads
   name: blind_1_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[1].iStep
-  factor: 1
+  adsvar: GVL_Zaluzje.Zaluzje[1].iStep
   adstype: int
 - platform: ads
   name: blind_2_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[2].iStep
-  factor: 1 
+  adsvar: GVL_Zaluzje.Zaluzje[2].iStep
   adstype: int
 - platform: ads
   name: blind_3_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[3].iStep
-  factor: 1 
+  adsvar: GVL_Zaluzje.Zaluzje[3].iStep
   adstype: int
 - platform: ads
   name: blind_4_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[4].iStep
-  factor: 1 
+  adsvar: GVL_Zaluzje.Zaluzje[4].iStep
   adstype: int
 - platform: ads
   name: blind_5_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[5].iStep
-  factor: 1 
+  adsvar: GVL_Zaluzje.Zaluzje[5].iStep
   adstype: int
 - platform: ads
   name: blind_6_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[6].iStep
-  factor: 1 
+  adsvar: GVL_Zaluzje.Zaluzje[6].iStep
   adstype: int
 - platform: ads
   name: blind_7_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[7].iStep
-  factor: 1 
+  adsvar: GVL_Zaluzje.Zaluzje[7].iStep
   adstype: int
 - platform: ads
   name: blind_8_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[8].iStep
-  factor: 1 
+  adsvar: GVL_Zaluzje.Zaluzje[8].iStep
   adstype: int
 - platform: ads
   name: blind_9_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[9].iStep
-  factor: 1 
+  adsvar: GVL_Zaluzje.Zaluzje[9].iStep
   adstype: int
 - platform: ads
   name: blind_10_lastmode
-  adsvar: GVL_Blinds.st_BLINDS[10].iStep
-  factor: 1 
+  adsvar: GVL_Zaluzje.Zaluzje[10].iStep
   adstype: int
 
 
 ######################## POZYCJA CAŁEJ KONDYGNACJI ########################
 - platform: ads
   name: blind_AllPosition_P0
-  adsvar: P_BLINDS.iPosiotionAll_P0
-  factor: 1
+  adsvar: P_Zaluzje.iPosiotionAll_P0
   adstype: int
 - platform: ads
   name: blind_AllPosition_P1
-  adsvar: P_BLINDS.iPosiotionAll_P1
-  factor: 1
+  adsvar: P_Zaluzje.iPosiotionAll_P1
   adstype: int

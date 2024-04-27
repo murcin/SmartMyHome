@@ -13,6 +13,18 @@
 - platform: ads
   name: Bezpieczny dom
   adsvar: GVL_Alarm.bSafeHomeACTIVE
+  #TRYB TYLKO PIEC
+- platform: ads
+  name: Tryb Pies
+  adsvar: GVL_Alarm.bOnlyDogModeACTIVE
+  #TRYB GOSCIE 
+- platform: ads
+  name: Tryb Goscie
+  adsvar: GVL_Alarm.bGoscieACTIVE
+  #TRYB Automatyczna furtka 
+- platform: ads
+  name: AutoFurtka
+  adsvar: GVL_Alarm.bAutoFurtkaACTIVE
   # ALARM 
 - platform: ads
   name: Alarm załącz
@@ -20,3 +32,6 @@
 - platform: ads
   name: Alarm wyłącz
   adsvar: GVL_Alarm.bAlarm_OFF_HMI
+  
+  
+  

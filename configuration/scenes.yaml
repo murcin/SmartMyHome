@@ -1,4 +1,39 @@
-
- ############################### SCENY ############################### 
- 
- 
+- id: '1655379158728'
+  name: Ogladamy film
+  entities:
+    remote.salon:
+      friendly_name: Salon Remote
+      supported_features: 0
+      state: 'off'
+    media_player.salon_philips:
+      device_class: tv
+      icon: mdi:television-box
+      friendly_name: Salon Philips
+      supported_features: 155453
+      state: 'off'
+    switch.salon_screen_state:
+      icon: mdi:television-shimmer
+      friendly_name: Salon Screen State
+      state: unavailable
+    switch.salon_ambilight_hue:
+      restored: true
+      icon: mdi:television-ambient-light
+      friendly_name: Salon Ambilight+Hue
+      supported_features: 0
+      state: unavailable
+    cover.zaluzja_salon:
+      current_position: 100
+      current_tilt_position: 100
+      device_class: shutter
+      friendly_name: Zaluzja Salon
+      supported_features: 247
+      state: open
+  metadata:
+    remote.salon:
+      entity_only: false
+    media_player.salon_philips:
+      entity_only: false
+    switch.salon_screen_state:
+      entity_only: false
+    switch.salon_ambilight_hue:
+      entity_only: false

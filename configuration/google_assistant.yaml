@@ -1,0 +1,235 @@
+ project_id: !secret google_assistant_project_id
+ service_account: !include homeassistant-403419-c27a0d881f83.json
+ report_state: true
+ exposed_domains:
+  - script
+  - light
+  - camera
+  - switch
+  - vacuum 
+  - cover 
+#  - media_player 
+#  - climate 
+ entity_config: # wyłączenie opcji w Google Assistant
+
+     switch.czas_letni:
+      expose: false
+     switch.Diskstation:
+      expose: false
+
+     switch.adguard_filtering:
+      expose: false
+     switch.adguard_parental_control:
+      expose: false
+     switch.adguard_protection:
+      expose: false
+     switch.adguard_safe_browsing:
+      expose: false
+     switch.adguard_safe_search:
+      expose: false
+     switch.adguard_query_log:
+      expose: false
+
+     switch.reset_minmax_temp:
+      expose: false
+     switch.washingmachine:
+      expose: false
+     switch.boiler:
+      expose: false
+     switch.fridge:
+      expose: false
+     switch.dishwasher:
+      expose: false
+     switch.harmony_hub_listen_to_radio:
+      expose: false
+     switch.harmony_hub_play_xbox_360:
+      expose: false
+     switch.harmony_hub_spotify:
+      expose: false
+     switch.harmony_hub_watch_tv:
+      expose: false
+     switch.harmony_hub_watch_a_movie:
+      expose: false
+     
+     switch.mainpowersocketups:
+      expose: false
+     switch.mainpowersocketups_auto_off:
+      expose: false
+     switch.my_vw_force_data_refresh:
+      expose: false
+     switch.blinds_on_1:
+      expose: false
+     switch.blinds_on_2:
+      expose: false
+     switch.blinds_on_3:
+      expose: false
+     switch.blinds_on_4:
+      expose: false
+     switch.blinds_on_5:
+      expose: false
+     switch.blinds_on_6:
+      expose: false
+     switch.blinds_on_7:
+      expose: false
+     switch.blinds_on_8:
+      expose: false
+     switch.blinds_on_9:
+      expose: false
+     switch.blinds_on_10:
+      expose: false
+     switch.blinds_p0_close:
+      expose: false
+     switch.blinds_p0_down:
+      expose: false
+     switch.blinds_p0_up:
+      expose: false
+     switch.blinds_p0_lms_down:
+      expose: false
+     switch.blinds_p0_lms_up:
+      expose: false
+     switch.blinds_p1_close:
+      expose: false
+     switch.blinds_p1_down:
+      expose: false
+     switch.blinds_p1_up:
+      expose: false
+     switch.blinds_p1_lms_down:
+      expose: false
+     switch.blinds_p1_lms_up:
+      expose: false
+
+     switch.wlacz_wszystkie_swiatla:
+      expose: false
+     switch.sypialnia_button:
+      expose: false
+     switch.sypialnia_button_m:
+      expose: false
+     switch.sypialnia_button_i:
+      expose: false
+     switch.julia_button:
+      expose: false
+     switch.oliwia_button:
+      expose: false
+     switch.biuro_button:
+      expose: false
+     switch.gniazdka_laptop_julia:
+      expose: false
+     switch.monitorhmi:
+      expose: false
+      
+      
+     switch.salon_screen_state:
+      expose: false
+     switch.salon_ambilight_hue:
+      expose: false
+     light.schody_led_1:
+      expose: false
+     light.schody_led_2:
+      expose: false
+     light.schody_led_3:
+      expose: false
+     light.schody_led_4:
+      expose: false
+     light.schody_led_5:
+      expose: false
+     light.schody_led_6:
+      expose: false
+     light.schody_led_7:
+      expose: false
+     light.schody_led_8:
+      expose: false
+     light.schody_led_9:
+      expose: false
+     light.schody_led_10:
+      expose: false
+     light.schody_led_11:
+      expose: false
+     light.schody_led_12:
+      expose: false
+     light.schody_led_13:
+      expose: false
+     light.schody_led_14:
+      expose: false
+     light.schody_led_15:
+      expose: false
+
+     switch.obecnosc_lazienka_dolna:
+      expose: false
+     switch.obecnosc_sypialnia:
+      expose: false
+     switch.obecnosc_strych:
+      expose: false
+     switch.obecnosc_spizarka:
+      expose: false
+     switch.obecnosc_salon:
+      expose: false
+     switch.obecnosc_przedpokoj:
+      expose: false
+     switch.obecnosc_pralnia:
+      expose: false
+     switch.obecnosc_oliwia:
+      expose: false
+     switch.obecnosc_lazienka_gorna:
+      expose: false
+     switch.obecnosc_kuchnia:
+      expose: false
+     switch.obecnosc_kotlownia:
+      expose: false
+     switch.obecnosc_korytarz_gorny:
+      expose: false
+     switch.obecnosc_korytarz_dolny:
+      expose: false
+     switch.obecnosc_julia:
+      expose: false
+     switch.obecnosc_garderoba_gorna:
+      expose: false
+     switch.obecnosc_garderoba_dolna:
+      expose: false
+     switch.obecnosc_garaz:
+      expose: false
+     switch.obecnosc_gabinet:
+      expose: false
+     switch.obecnosc_biuro:
+      expose: false
+
+     switch.skasowania_licznika_bledow:
+      expose: false
+     switch.skasowania_max_wiatru:
+      expose: false
+     switch.kuchnia_mikrofala:
+      expose: false
+     switch.oven:
+      expose: false
+     switch.przycisk_plc_nocna_julia:
+      expose: false
+     switch.przycisk_plc_nocna_oliwia:
+      expose: false
+     switch.przycisk_plc_nocna_marcin:
+      expose: false
+     light.error_do_usuniecia:
+      expose: false
+     switch.testowy_bool_1_switch:
+      expose: false
+     switch.testowy_bool_2_switch:
+      expose: false
+     switch.testowy_bool_3_switch:
+      expose: false
+
+     camera.ipc_d302f_g_mainstream:
+      expose: false
+     camera.ipc_d302f_g_mainstream_2:
+      expose: false
+     camera.dahua_mediaprofile_channel1_mainstream:
+      expose: false
+     camera.camera_pietro_mainstream:
+      expose: false
+     camera.camera_pietro_substream:
+      expose: false
+     camera.camera_entrance_mediaprofile_channel1_mainstream:
+      expose: false
+     camera.camera_entrance_mediaprofile_channel1_substream1:
+      expose: false
+     camera.ic_80h3_mainstream:
+      expose: false
+     camera.ic_80h3_subtream:
+      expose: false

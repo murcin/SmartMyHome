@@ -2,95 +2,89 @@
 ######################## CZUJNIKI RUCHU PARTER ########################
 
 - platform: ads
-  name: move_hall_down
+  name: Ruch Salon
   device_class: motion
-  adsvar: GVL_Sensors.bMOVE_SENSOR_ENTRENCE_HALL_DWN
+  adsvar: GVL_CzujnikiRuchu.HA_Salon
 - platform: ads
-  name: move_entrance
+  name: Ruch Kuchnia
   device_class: motion
-  adsvar: GVL_Sensors.bMOVE_SENSOR_ENTRENCE_EXIT
+  adsvar: GVL_CzujnikiRuchu.HA_Kuchnia
 - platform: ads
-  name: move_boiler
+  name: Ruch Gabinet
   device_class: motion
-  adsvar: GVL_Sensors.bMOVE_SENSOR_BOILER
+  adsvar: GVL_CzujnikiRuchu.HA_Gabinet
 - platform: ads
-  name: move_garage
+  name: Ruch Łazienka dolna
   device_class: motion
-  adsvar: GVL_Sensors.bMOVE_SENSOR_GARAGE
+  adsvar: GVL_CzujnikiRuchu.HA_LazienkaParter
 - platform: ads
-  name: move_smallroom
+  name: Ruch Korytarz dolny
   device_class: motion
-  adsvar: GVL_Sensors.bMOVE_SENSOR_SMALLROOM
+  adsvar: GVL_CzujnikiRuchu.HA_KorytarzParter
 - platform: ads
-  name: move_kitchen
+  name: Ruch Garderoba przedpokój
   device_class: motion
-  adsvar: GVL_Sensors.bMOVE_SENSOR_KITCHEN
+  adsvar: GVL_CzujnikiRuchu.HA_GarderobaParter
 - platform: ads
-  name: move_salon
+  name: Ruch Przedpokoj
   device_class: motion
-  adsvar: GVL_Sensors.bMOVE_SENSOR_SALON
+  adsvar: GVL_CzujnikiRuchu.HA_Przedpokoj
 - platform: ads
-  name: move_bathroom_down
+  name: Ruch Garaż
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_BATHROOM_DOWN
+  adsvar: GVL_CzujnikiRuchu.HA_Garaz
 - platform: ads
-  name: move_weardrobe_entrance
+  name: Ruch Kotłownia
   device_class: motion
-  adsvar: GVL_Sensors.bMOVE_SENSOR_ENTRENCE_WEAR
+  adsvar: GVL_CzujnikiRuchu.HA_Kotlownia
 - platform: ads
-  name: move_pantry
+  name: Ruch Spiżarka
   device_class: motion
-  adsvar: GVL_Sensors.bMOVE_SENSOR_PANTRY 
+  adsvar: GVL_CzujnikiRuchu.HA_Spizarka 
 
 ######################## CZUJNIKI RUCHU PIĘTRO ########################
 
 - platform: ads
-  name: move_hall_up
+  name: Ruch Sypialnia
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_ENTRENCE_HALL_UP
+  adsvar: GVL_CzujnikiRuchu.HA_Sypialnia
 - platform: ads
-  name: move_oliwia
+  name: Ruch Garderoba sypialnia
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_OLIWIA_ROOM
+  adsvar: GVL_CzujnikiRuchu.HA_GarderobaPietro
 - platform: ads
-  name: move_julia
+  name: Ruch Łazienka górna
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_JULIA_ROOM
+  adsvar: GVL_CzujnikiRuchu.HA_LazienkaPietro
 - platform: ads
-  name: move_bathroom_up
+  name: Ruch Julia
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_BATHROOM_UP
+  adsvar: GVL_CzujnikiRuchu.HA_Julia
 - platform: ads
-  name: move_badroom
+  name: Ruch Oliwia
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_BADROOM
+  adsvar: GVL_CzujnikiRuchu.HA_Oliwia
 - platform: ads
-  name: move_weardrobe_badroom
+  name: Ruch Biuro
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_BADROOM_WEAR
+  adsvar: GVL_CzujnikiRuchu.HA_Biuro
 - platform: ads
-  name: move_washroom
+  name: Ruch Korytarz górny
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_WASHROOM
+  adsvar: GVL_CzujnikiRuchu.HA_KorytarzPietro
 - platform: ads
-  name: move_office
+  name: Ruch Pralnia
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_OFFICE
+  adsvar: GVL_CzujnikiRuchu.HA_Pralnia
 
 ######################## CZUJNIKI RUCHU STRYCH ########################
 
 - platform: ads
-  name: move_attic_1
+  name: Ruch Strych_1
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_ATTIC_1
+  adsvar: GVL_CzujnikiRuchu.HA_Strych1
 - platform: ads
-  name: move_attic_2
+  name: Ruch Strych_2
   device_class: motion
-  adsvar: GVL_SENSORS.bMOVE_SENSOR_ATTIC_2
+  adsvar: GVL_CzujnikiRuchu.HA_Strych2
 
-######################## CZUJNIKI OCZEKIWANIA NA RUCH W KUCHNI ########################
-
-- platform: ads
-  name: move_waiting_morning
-  device_class: motion
-  adsvar: P_BLINDS.bSunWaiting

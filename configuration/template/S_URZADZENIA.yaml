@@ -1,0 +1,93 @@
+
+- sensor:
+
+########################## PRALKA STARA ########################## 
+  - name: pranie2
+    state: >
+      {% if is_state('binary_sensor.pranie2_oczekiwanie', 'on') %}
+        Oczekiwanie na wyjęcie...
+      {% elif is_state('binary_sensor.pralka2', 'on') %}
+        Trwa pranie...
+      {% else %}
+        Wyłączona
+      {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.pranie2_oczekiwanie", "on") %}
+       mdi:washing-machine-alert
+     {% elif is_state('binary_sensor.pralka2', 'on') %}
+       mdi:washing-machine
+     {% else %}
+       mdi:washing-machine-off
+     {% endif %}
+
+########################## PRALKA PUSTY SENSOR  ########################## 
+  - name: Blank Sensor
+    state: ""
+
+########################## PRALKA1 LG ########################## 
+  - name: pranie1
+    state: >
+      {% if is_state('binary_sensor.pranie1_oczekiwanie', 'on') %}
+        Oczekiwanie na wyjęcie...
+      {% elif is_state('binary_sensor.pralka1', 'on') %}
+        Trwa pranie...
+      {% else %}
+        Wyłączona
+      {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.pranie1_oczekiwanie", "on") %}
+       mdi:washing-machine-alert
+     {% elif is_state('binary_sensor.pralka1', 'on') %}
+       mdi:washing-machine
+     {% else %}
+       mdi:washing-machine-off
+     {% endif %}
+
+  - name: Washer Door Lock
+    state: "{{ state_attr('sensor.pralka','door_lock') }}"
+
+  - name: Washer Time Display
+    state: >
+         {% if is_state('sensor.pralka_run_state', '-') %}
+         {% elif is_state('sensor.pralka_run_state', 'Standby') %}
+           -:--
+         {% else %}
+           {{ state_attr('sensor.pralka', 'remain_time') }}
+         {% endif %}
+
+  - name: Pralka trwa
+    state: "{{ state_attr('sensor.pralka','run_state') }}"
+
+########################## SUSZARKA ########################## 
+  - name: suszarka_stan
+    state: >
+      {% if is_state('binary_sensor.suszarka_oczekiwanie', 'on') %}
+        Oczekiwanie na wyjęcie...
+      {% elif is_state('binary_sensor.suszarka', 'on') %}
+        Trwa suszenie...
+      {% else %}
+        Wyłączona
+      {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.suszarka_oczekiwanie", "on") %}
+       mdi:tumble-dryer-alert
+     {% elif is_state('binary_sensor.suszarka', 'on') %}
+       mdi:tumble-dryer
+     {% else %}
+       mdi:tumble-dryer-off
+     {% endif %}
+
+  - name: Dryer Door Lock
+    state: "{{ state_attr('sensor.suszarka','door_lock') }}"
+
+  - name: Dryer Time Display
+    state: >
+         {% if is_state('sensor.suszarka_run_state', '-') %}
+         {% elif is_state('sensor.suszarka_run_state', 'Standby') %}
+           -:--
+         {% else %}
+           {{ state_attr('sensor.suszarka', 'remain_time') }}
+         {% endif %}
+
+  - name: Suszarka trwa
+    state: "{{ state_attr('sensor.suszarka','run_state') }}"

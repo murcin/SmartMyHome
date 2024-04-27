@@ -1,0 +1,5 @@
+
+- platform: ads
+  name: Światło Łazienka STATUS
+  adsvar: P_Oswietlenie_P1.iStep
+  adstype: int

@@ -1,0 +1,20 @@
+alias: Kasowanie licznikow
+description: Kasowanie licznikow
+trigger:
+  - platform: time
+    at: "00:00:01"
+condition:
+  - condition: template
+    value_template: "{{ now().day == 1 }}"
+action:
+  - service: powercalc.reset_energy
+    data: {}
+    target:
+      entity_id: 
+        - sensor.oddane_do_sieci_l1_energy
+        - sensor.oddane_do_sieci_l2_energy
+        - sensor.oddane_do_sieci_l3_energy
+        - sensor.zuzycie_w_domu_l1_energy
+        - sensor.zuzycie_w_domu_l2_energy
+        - sensor.zuzycie_w_domu_l3_energy
+mode: single

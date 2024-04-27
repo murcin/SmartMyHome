@@ -2,16 +2,12 @@
 ######################## FUNKCJE SYSTEMOWE ########################
 
 - platform: ads
-  name: Monitor HMI
-  adsvar: HomeAssistant.bHmi_ON
-
-- platform: ads
   name: Czas letni
   adsvar: P_SYSTEM.bSummerTime
   
 - platform: ads
   name: Czas świąteczny
-  adsvar: GVL_PowerSocket.bChristmas_time
+  adsvar: GVL_Gniazdka.bChristmas_time
 
 - platform: ads
   name: Zezwolenie dla dzieci
@@ -24,3 +20,62 @@
 - platform: ads
   name: Skasowania max wiatru
   adsvar: P_System.bResetMaxWiatr
+
+- platform: ads
+  name: Wysylaj dane ADS
+  adsvar: GVL_HomeAssistant.ADS_aktywne
+  
+######################## FUNKCJE TESTOWE ########################
+- platform: ads
+  name: Testowy bool 1 switch
+  adsvar: P_SYSTEM.bTestowy1
+- platform: ads
+  name: Testowy bool 2 switch
+  adsvar: P_SYSTEM.bTestowy2
+- platform: ads
+  name: Testowy bool 3 switch
+  adsvar: P_SYSTEM.bTestowy3
+
+######################## FUNKCJE ZAPISU DANYCH RACHUNKÓW ########################
+
+- platform: ads
+  name: PRAD Zapisane dane
+  adsvar: P_PowerMeter.bTest
+- platform: ads
+  name: PRAD Zapisz rachunek
+  adsvar: P_PowerMeter.bCurrentCheck
+- platform: ads
+  name: PRAD Zapisz dane licznikow
+  adsvar: P_PowerMeter.bSetMyData
+- platform: ads
+  name: PRAD Wykonaj obliczenia
+  adsvar: P_PowerMeter.WykonajObliczenia
+
+######################## FUNKCJE ZAPISU DANYCH RACHUNKÓW ########################
+
+- platform: ads
+  name: WODA Zapisane dane
+  adsvar: P_WaterMeter.bTest
+- platform: ads
+  name: WODA Zapisz rachunek
+  adsvar: P_WaterMeter.PrzepiszRachunek
+- platform: ads
+  name: WODA Zapisz dane licznikow
+  adsvar: P_WaterMeter.PrzepiszStareRachunki
+- platform: ads
+  name: WODA Wykonaj obliczenia
+  adsvar: P_WaterMeter.WykonajObliczenia
+  
+######################## FUNKCJE ZAPISU DANYCH RACHUNKÓW ########################
+- platform: ads
+  name: GAZ Zapisane dane
+  adsvar: P_GasMeter.bTest
+- platform: ads
+  name: GAZ Zapisz rachunek
+  adsvar: P_GasMeter.PrzepiszRachunek
+- platform: ads
+  name: GAZ Zapisz dane licznikow
+  adsvar: P_GasMeter.PrzepiszStareRachunki
+- platform: ads
+  name: GAZ Wykonaj obliczenia
+  adsvar: P_GasMeter.WykonajObliczenia

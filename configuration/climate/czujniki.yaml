@@ -1,0 +1,39 @@
+
+  - platform: generic_thermostat
+    name: Cykulacja
+    heater: binary_sensor.pompa_cyrkulacji
+    target_sensor: sensor.temp_cyrkulacja
+#    target_temp: '{{ states('sensor.temp_ciepla_woda') }}'
+    target_temp: 40
+    min_temp: 20
+    max_temp: 45
+    initial_hvac_mode: "heat"
+  - platform: generic_thermostat
+    name: Ciepła woda
+    heater: binary_sensor.ogrzewanie_cwu_plc
+    target_sensor: sensor.temp_ciepla_woda
+#    target_temp: '{{ states('sensor.temp_ciepla_woda') }}'
+    target_temp: 43
+    min_temp: 20
+    max_temp: 45
+    initial_hvac_mode: "heat"
+  - platform: generic_thermostat
+    name: Ciepła woda Vaillant
+    heater: binary_sensor.ogrzewanie_cwu_vaillant
+    target_sensor: sensor.temp_ciepla_woda
+#    target_temp: '{{states('sensor.temp_ciepla_woda') }}'
+    target_temp: 43
+    min_temp: 20
+    max_temp: 45
+    initial_hvac_mode: "heat"
+
+
+#   - platform: generic_thermostat
+#     name: Wentylacja w łazience
+#     heater: switch.wentylator_lazienka_gorna
+#     target_sensor: sensor.temperatura_lazienkagorna_temperature
+# #    target_temp: '{{states('sensor.temp_ciepla_woda') }}'
+#     target_temp: 80
+#     min_temp: 20
+#     max_temp: 100
+#     initial_hvac_mode: "heat"

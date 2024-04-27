@@ -1,12 +1,11 @@
 
-################## WYBÓR RADIA ################## 
+################## WYBÓR GŁOŚNIKA ################## 
 
 name: 'Wybór odtwarzacza:'
 options:
 - Cały dom
 - Dzieci
 - Amplituner
-- Salon
 - Kuchnia
 - Julia
 - Oliwia

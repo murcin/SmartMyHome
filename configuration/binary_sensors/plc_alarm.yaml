@@ -44,9 +44,14 @@
 - platform: ads
   name: Poranne oczekiwanie
   device_class: motion
-  adsvar: GVL_Alarm.bMorningWaiting
+  adsvar: GVL_Alarm.PoranneOczekiwanie
+
+- platform: ads
+  name: Poranny start
+  device_class: motion
+  adsvar: GVL_Alarm.PorannyStart
 
 - platform: ads
   name: Ktos jest w domu
-  device_class: occupancy
+  device_class: presence
   adsvar: P_ALARM.bSomeoneInHome

@@ -1,0 +1,154 @@
+  sensor:
+    - name: "Licznik wody"
+      state_topic: "wmbusmeters/licznik_wody"
+      value_template: '{{ value_json["total_m3"] }}'
+      unit_of_measurement: "m³"
+      device_class: "water"
+      state_class: "total_increasing"
+      icon: "mdi:gauge"
+
+    - name: "Licznik wody ogrodowej org"
+      state_topic: "wmbusmeters/licznik_wody_ogrodowej"
+      value_template: '{{ value_json["total_m3"] }}'
+      unit_of_measurement: "m³"
+      device_class: "water"
+      state_class: "total_increasing"
+      icon: "mdi:gauge"
+    - name: "Licznik wody ogrodowej"
+      state_topic: "wmbusmeters/licznik_wody_ogrodowej"
+      value_template: '{{ (value_json["total_m3"] - 311.724)|round(3) }}'
+      unit_of_measurement: "m³"
+      device_class: "water"
+      state_class: "total_increasing"
+      icon: "mdi:gauge"
+
+    - name: "Airly limit"
+      state_class: measurement
+      unit_of_measurement: "/100"
+      state_topic: "node-red/Airly/limit/value"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly NO2"
+      device_class: nitrogen_monoxide
+      state_class: measurement
+      unit_of_measurement: "µg/m³"
+      state_topic: "node-red/Airly/NO2/value"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly NO2_2"
+      #device_class: nitrogen_monoxide
+      state_class: measurement
+      unit_of_measurement: "%"
+      state_topic: "node-red/Airly/NO2/limit-percent"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly O3"
+      device_class: ozone
+      state_class: measurement
+      unit_of_measurement: "µg/m³"
+      state_topic: "node-red/Airly/O3/value"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly O3_2"
+      #device_class: ozone
+      state_class: measurement
+      unit_of_measurement: "%"
+      state_topic: "node-red/Airly/O3/limit-percent"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly PM1"
+      device_class: pm1
+      state_class: measurement
+      unit_of_measurement: "µg/m³"
+      state_topic: "node-red/Airly/PM1/value"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly PM2.5"
+      device_class: pm25
+      state_class: measurement
+      unit_of_measurement: "µg/m³"
+      state_topic: "node-red/Airly/PM25/value"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly PM2_5_2"
+      #device_class: pm25
+      state_class: measurement
+      unit_of_measurement: "%"
+      state_topic: "node-red/Airly/PM25/limit-percent"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly PM10"
+      device_class: pm10
+      state_class: measurement
+      unit_of_measurement: "µg/m³"
+      state_topic: "node-red/Airly/PM10/value"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly PM10_2"
+      #device_class: pm10
+      state_class: measurement
+      unit_of_measurement: "%"
+      state_topic: "node-red/Airly/PM10/limit-percent"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly pressure"
+      device_class: pressure
+      state_class: measurement
+      unit_of_measurement: "hPa"
+      state_topic: "node-red/Airly/climate/pressure"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly humidity"
+      device_class: humidity
+      state_class: measurement
+      unit_of_measurement: "%"
+      state_topic: "node-red/Airly/climate/humidity"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly temperature"
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: "°C"
+      state_topic: "node-red/Airly/climate/temperature"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly CAQI"
+      device_class: aqi
+      state_class: measurement
+      icon: mdi:air-filter
+      state_topic: "node-red/Airly/CAQI/value"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly level"
+      state_topic: "node-red/Airly/CAQI/level"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly color"
+      state_topic: "node-red/Airly/CAQI/color"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly description"
+      state_topic: "node-red/Airly/CAQI/description"
+      payload_available: "online"
+      payload_not_available: "offline"
+
+    - name: "Airly advice"
+      state_topic: "node-red/Airly/CAQI/advice"
+      payload_available: "online"
+      payload_not_available: "offline"

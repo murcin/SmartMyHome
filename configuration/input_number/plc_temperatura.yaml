@@ -9,16 +9,16 @@ therm_salon:
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+##  mode: box
 therm_gabinet:
   name: Gabinet
-  initial: 22
+  initial: 21.5
   min: 19
   max: 25
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+##  mode: box
 therm_bathroom_down:
   name: Łazienka dolna
   initial: 22
@@ -27,7 +27,7 @@ therm_bathroom_down:
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+##  mode: box
 therm_entrance:
   name: Przedpokój
   initial: 20
@@ -36,16 +36,16 @@ therm_entrance:
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+##  mode: box
 therm_pantry:
   name: Spiżarka
-  initial: 19
+  initial: 20
   min: 19
   max: 25
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+##  mode: box
 therm_garage:
   name: Garaż
   initial: 19
@@ -54,7 +54,7 @@ therm_garage:
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+##  mode: box
 therm_boiler:
   name: Kotłownia
   initial: 19
@@ -63,17 +63,17 @@ therm_boiler:
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+#  mode: box
 
 therm_bathroom_up:
   name: Łazienka górna
-  initial: 22
+  initial: 21.5
   min: 19
   max: 25
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+#  mode: box
 therm_badroom:
   name: Sypialnia
   initial: 21
@@ -82,34 +82,34 @@ therm_badroom:
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+#  mode: box
 therm_julia:
   name: Julia
-  initial: 22
+  initial: 21.5
   min: 19
   max: 25
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+#  mode: box
 therm_oliwia:
   name: Oliwia
-  initial: 22
+  initial: 21.5
   min: 19
   max: 25
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+#  mode: box
 therm_office:
   name: Biuro
-  initial: 21
+  initial: 21.5
   min: 19
   max: 25
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+#  mode: box
 therm_washroom:
   name: Pralnia
   initial: 21
@@ -118,5 +118,5 @@ therm_washroom:
   step: 0.5
   unit_of_measurement: °C
   icon: mdi:thermometer
-  mode: box
+#  mode: box
   

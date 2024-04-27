@@ -15,8 +15,3 @@
   name: Ostatni ruch Dom
   adsvar: P_ALARM_MOVE_SENSOR.iOstatniRuch_Dom
   adstype: int
-
-- platform: ads
-  name: Ostatni ruch Zewn
-  adsvar: P_ALARM_MOVE_SENSOR.iOstatniRuch_Zewn
-  adstype: int

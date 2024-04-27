@@ -1,148 +1,11 @@
 
 ######################## POMIAR PRĄDU I NAPIĘCIA ########################
 
-############# KWOTY Z RACHUNKU - POSZCZEGÓLNE POZYCJE #############
-
-# SPRZEDAŻ ENERGII
-
-- platform: ads
-  name: Prąd Stawka zmienna ceny
-  adsvar: GVL_Power_HA.iStawkaZmiennaCeny
-  unit_of_measurement: 'zł/kWh'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Prąd Stawka stała ceny
-  adsvar: GVL_Power_HA.iStawkaStalaCeny
-  unit_of_measurement: 'zł'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Prąd Opłata za dodatkowy cykl handlowy
-  adsvar: GVL_Power_HA.iOplataZaDodatkowyCyklHandlowy
-  unit_of_measurement: 'zł'
-  factor: 1000
-  adstype: dint
-
-# DYSTRYBUCJA ENERGII
-
-- platform: ads
-  name: Prąd Opłata dystr. zm.
-  adsvar: GVL_Power_HA.iOplataDystrZm
-  unit_of_measurement: 'zł/kWh'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Prąd Opłata OZE
-  adsvar: GVL_Power_HA.iOplataOZE
-  unit_of_measurement: 'zł/kWh'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Prąd Opłata Kogeneracyjna
-  adsvar: GVL_Power_HA.iOplataKogenecyjna
-  unit_of_measurement: 'zł/kWh'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Prąd Dystrybucja Stała
-  adsvar: GVL_Power_HA.iOplataDystrybucyjnaStala
-  unit_of_measurement: 'zł'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Prąd Opłata przejściowa
-  adsvar: GVL_Power_HA.iOplataPrzejsciowa
-  unit_of_measurement: 'zł'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Prąd Opłata mocowa
-  adsvar: GVL_Power_HA.iOplataMocowa
-  unit_of_measurement: 'zł'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Prąd Opłata abonamentowa
-  adsvar: GVL_Power_HA.iOplataAbonamentowa
-  unit_of_measurement: 'zł'
-  factor: 1000
-  adstype: dint
-
-- platform: ads
-  name: Prąd Rachunek Sprzedaz Energii vat
-  adsvar: GVL_Power_HA.iSprzedazEnergii_vat
-  unit_of_measurement: '%'
-  adstype: int
-
-- platform: ads
-  name: Prąd Rachunek Dystrybucja Energii vat
-  adsvar: GVL_Power_HA.iDystrybucjaEnergii_vat
-  unit_of_measurement: '%'
-  adstype: int
-
  ############# PODSUMOWANIA RACHUNKU #############
-
-- platform: ads
-  name: Prąd Stawka zmienna ceny koszt
-  adsvar: GVL_Power_HA.iStawkaZmiennaCeny_koszt
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
-
-- platform: ads
-  name: Prąd Opłata dystr. zm. koszt
-  adsvar: GVL_Power_HA.iOplataDystrZm_koszt
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
-
-- platform: ads
-  name: Prąd Opłata OZE koszt
-  adsvar: GVL_Power_HA.iOplataOZE_koszt
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
-
-- platform: ads
-  name: Prąd Opłata Kogeneracyjna koszt
-  adsvar: GVL_Power_HA.iOplataKogenecyjna_koszt
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
-
-- platform: ads
-  name: Prąd Rachunek Sprzedaz Energii
-  adsvar: GVL_Power_HA.iSprzedazEnergii_koszt
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
-
-- platform: ads
-  name: Prąd Rachunek Dystrybucja Energii
-  adsvar: GVL_Power_HA.iDystrybucjaEnergii_koszt
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
 
 - platform: ads
   name: Prąd Rachunek Aktualnie
   adsvar: GVL_Power_HA.iPradRachunekAktualnie
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
-
-- platform: ads
-  name: Prąd Rachunek Podatek VAT
-  adsvar: GVL_Power_HA.iPradWysokoscVat
   unit_of_measurement: 'zł'
   factor: 100
   adstype: dint
@@ -205,118 +68,321 @@
   adstype: int
 
 - platform: ads
+  name: Cena sprzedazy pradu                ## aktualna cena za kWh prądu
+  adsvar: GVL_Power_HA.iCenaSprzedaz1kW
+  unit_of_measurement: 'zł/kWh'
+  factor: 100
+  adstype: int
+
+- platform: ads
+  name: Sprzedaz pradu na godzine           ## bierzący koszt prądu wg aktualnego zużycia
+  adsvar: GVL_Power_HA.iChwilowaSprzedazPradu
+  unit_of_measurement: 'zł'
+  factor: 100
+  adstype: int
+
+- platform: ads
   name: Koszt pradu na godzine              ## bierzący koszt prądu wg aktualnego zużycia
   adsvar: GVL_Power_HA.iChwilowyKosztPradu
   unit_of_measurement: 'zł'
   factor: 100
   adstype: int
 
-- platform: ads
-  name: Koszt prądu miesieczny trend        ## trend kosztów prądu na ten miesiąc
-  adsvar: GVL_Power_HA.iPowerRachunekTREND
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
-
-- platform: ads
-  name: Rachunek prąd koszty stałe      ## trend kosztów prądu na ten miesiąc
-  adsvar: GVL_Power_HA.iPowerCenaKosztyStale
-  unit_of_measurement: 'zł'
-  factor: 100
-  adstype: dint
 
 ######################## PODZIAŁ NA FAZY ########################
 
 - platform: ads
   name: Voltage_L1
-  adsvar: HomeAssistant.iVoltage_L1
+  adsvar: P_Power.iVoltage_L1
   unit_of_measurement: 'V'
   factor: 10
   adstype: int
 - platform: ads
   name: Voltage_L2
-  adsvar: HomeAssistant.iVoltage_L2
+  adsvar: P_Power.iVoltage_L2
   unit_of_measurement: 'V'
   factor: 10
   adstype: int
 - platform: ads
   name: Voltage_L3
-  adsvar: HomeAssistant.iVoltage_L3
+  adsvar: P_Power.iVoltage_L3
+  unit_of_measurement: 'V'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Voltage_PV_L1
+  adsvar: P_Power.iVoltage_PV_L1
+  unit_of_measurement: 'V'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Voltage_PV_L2
+  adsvar: P_Power.iVoltage_PV_L2
+  unit_of_measurement: 'V'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Voltage_PV_L3
+  adsvar: P_Power.iVoltage_PV_L3
   unit_of_measurement: 'V'
   factor: 10
   adstype: int
 
 - platform: ads
   name: iPower_L1
-  adsvar: HomeAssistant.iPower_L1
+  adsvar: P_Power.iPower_L1
   unit_of_measurement: 'W'
   factor: 1
   adstype: int
 - platform: ads
   name: iPower_L2
-  adsvar: HomeAssistant.iPower_L2
+  adsvar: P_Power.iPower_L2
   unit_of_measurement: 'W'
   factor: 1
   adstype: int
 - platform: ads
   name: iPower_L3
-  adsvar: HomeAssistant.iPower_L3
+  adsvar: P_Power.iPower_L3
+  unit_of_measurement: 'W'
+  factor: 1
+  adstype: int
+
+- platform: ads
+  name: iPower_PV_L1
+  adsvar: P_Power.iPower_PV_L1
+  unit_of_measurement: 'W'
+  factor: 1
+  adstype: int
+- platform: ads
+  name: iPower_PV_L2
+  adsvar: P_Power.iPower_PV_L2
+  unit_of_measurement: 'W'
+  factor: 1
+  adstype: int
+- platform: ads
+  name: iPower_PV_L3
+  adsvar: P_Power.iPower_PV_L3
+  unit_of_measurement: 'W'
+  factor: 1
+  adstype: int
+
+- platform: ads
+  name: iPower_L1_OUT
+  adsvar: P_Power.iPower_L1_OUT
+  unit_of_measurement: 'W'
+  factor: 1
+  adstype: int
+- platform: ads
+  name: iPower_L2_OUT
+  adsvar: P_Power.iPower_L2_OUT
+  unit_of_measurement: 'W'
+  factor: 1
+  adstype: int
+- platform: ads
+  name: iPower_L3_OUT
+  adsvar: P_Power.iPower_L3_OUT
+  unit_of_measurement: 'W'
+  factor: 1
+  adstype: int
+
+- platform: ads
+  name: iPower_L1_full
+  adsvar: P_Power.iPower_L1_full
+  unit_of_measurement: 'W'
+  factor: 1
+  adstype: int
+- platform: ads
+  name: iPower_L2_full
+  adsvar: P_Power.iPower_L2_full
+  unit_of_measurement: 'W'
+  factor: 1
+  adstype: int
+- platform: ads
+  name: iPower_L3_full
+  adsvar: P_Power.iPower_L3_full
   unit_of_measurement: 'W'
   factor: 1
   adstype: int
 
 - platform: ads
   name: iCurrent_L1
-  adsvar: HomeAssistant.iCurrent_L1
+  adsvar: P_Power.iCurrent_L1
   unit_of_measurement: 'A'
   factor: 10
   adstype: int
 - platform: ads
   name: iCurrent_L2
-  adsvar: HomeAssistant.iCurrent_L2
+  adsvar: P_Power.iCurrent_L2
   unit_of_measurement: 'A'
   factor: 10
   adstype: int
 - platform: ads
   name: iCurrent_L3
-  adsvar: HomeAssistant.iCurrent_L3
+  adsvar: P_Power.iCurrent_L3
+  unit_of_measurement: 'A'
+  factor: 10
+  adstype: int
+
+- platform: ads
+  name: iCurrent_PV_L1
+  adsvar: P_Power.iCurrent_PV_L1
+  unit_of_measurement: 'A'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: iCurrent_PV_L2
+  adsvar: P_Power.iCurrent_PV_L2
+  unit_of_measurement: 'A'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: iCurrent_PV_L3
+  adsvar: P_Power.iCurrent_PV_L3
   unit_of_measurement: 'A'
   factor: 10
   adstype: int
 
 - platform: ads
   name: iEnergy_L1
-  adsvar: HomeAssistant.iEnergy_L1
+  adsvar: P_Power.iEnergy_L1
   unit_of_measurement: 'kWh'
   factor: 10
   adstype: int
 - platform: ads
   name: iEnergy_L2
-  adsvar: HomeAssistant.iEnergy_L2
+  adsvar: P_Power.iEnergy_L2
   unit_of_measurement: 'kWh'
   factor: 10
   adstype: int
 - platform: ads
   name: iEnergy_L3
-  adsvar: HomeAssistant.iEnergy_L3
+  adsvar: P_Power.iEnergy_L3
+  unit_of_measurement: 'kWh'
+  factor: 10
+  adstype: int
+  
+- platform: ads
+  name: iEnergy_PV_L1
+  adsvar: P_Power.iEnergy_PV_L1
+  unit_of_measurement: 'kWh'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: iEnergy_PV_L2
+  adsvar: P_Power.iEnergy_PV_L2
+  unit_of_measurement: 'kWh'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: iEnergy_PV_L3
+  adsvar: P_Power.iEnergy_PV_L3
   unit_of_measurement: 'kWh'
   factor: 10
   adstype: int
 
 - platform: ads
-  name: iPower_SUM
-  adsvar: HomeAssistant.iPower_SUM
-  unit_of_measurement: 'W'
+  name: iCosFi_L1
+  adsvar: P_Power.icosfi_L1
+  unit_of_measurement: 'fi'
+  factor: 100
   adstype: int
 - platform: ads
+  name: iCosFi_L2
+  adsvar: P_Power.icosfi_L2
+  unit_of_measurement: 'fi'
+  factor: 100
+  adstype: int
+- platform: ads
+  name: iCosFi_L3
+  adsvar: P_Power.icosfi_L3
+  unit_of_measurement: 'fi'
+  factor: 100
+  adstype: int
+
+- platform: ads
   name: iCurrent_SUM
-  adsvar: HomeAssistant.iCurrent_SUM
+  adsvar: P_Power.iCurrent_SUM
   unit_of_measurement: 'A'
   factor: 10
   adstype: int
 - platform: ads
+  name: iCurrent_PV_SUM
+  adsvar: P_Power.iCurrent_PV_SUM
+  unit_of_measurement: 'A'
+  factor: 10
+  adstype: int
+  
+- platform: ads
   name: iEnergy_SUM
-  adsvar: HomeAssistant.iEnergy_SUM
+  adsvar: P_Power.iEnergy_SUM
   unit_of_measurement: 'kWh'
   factor: 10
+  adstype: int
+- platform: ads
+  name: iEnergy_PV_SUM
+  adsvar: P_Power.iEnergy_PV_SUM
+  unit_of_measurement: 'kWh'
+  factor: 10
+  adstype: int
+
+############# PRĄD CAŁKOWITY #############
+- platform: ads
+  name: iPower_SUM_FULL         # wartość pełna + i - 
+  adsvar: P_Power.iPower_SUM_FULL
+  unit_of_measurement: 'W'
+  adstype: int
+  
+############# PRĄD KUPOWANY Z SIECI #############
+- platform: ads
+  name: iPower_SUM
+  adsvar: P_Power.iPower_SUM    # kupno prądu z sieci
+  unit_of_measurement: 'W'
+  adstype: int
+
+############# PRĄD ODDAWANY DO SIECI #############
+- platform: ads
+  name: iPower_PV_SUM
+  adsvar: P_Power.iPower_PV_SUM # produkcja prądu z paneli
+  unit_of_measurement: 'W'
+  adstype: int
+
+############# PRĄD SPRZEDAWANY Z SIECI #############
+- platform: ads
+  name: iPower_NoPV_SUM
+  adsvar: P_Power.iPower_NoPV_SUM # sprzedaż prądu do sieci
+  unit_of_measurement: 'W'
+  adstype: int
+
+############# PRĄD ZBINALNSOWANY #############
+- platform: ads
+  name: iPower_kupno_bilans
+  adsvar: P_Power.iPower_kupno_bilans
+  unit_of_measurement: 'W'
+  adstype: int
+
+- platform: ads
+  name: iPower_sprzedaz_bilans
+  adsvar: P_Power.iPower_sprzedaz_bilans
+  unit_of_measurement: 'W'
+  adstype: int
+
+- platform: ads
+  name: Prad ilosc obliczen   ## ilość wykonanych obliczeń w ciągu dnia
+  adsvar: P_PowerMeter.iPradCalc
+  adstype: int
+
+############# ILOŚĆ PRZERWAŃ ZASILANIA 24VDC #############
+
+- platform: ads
+  name: Ilosc przerwac zasilania DC   ## ilość wykonanych obliczeń w ciągu dnia
+  adsvar: GVL_Power.ilosc_przerwan_24v
+  adstype: int
+
+- platform: ads
+  name: Ilosc przerwac zasilania DC P0   ## ilość wykonanych obliczeń w ciągu dnia
+  adsvar: P_Power.iBezpiecznikiP0
+  adstype: int
+- platform: ads
+  name: Ilosc przerwac zasilania DC P1   ## ilość wykonanych obliczeń w ciągu dnia
+  adsvar: P_Power.iBezpiecznikiP1
   adstype: int

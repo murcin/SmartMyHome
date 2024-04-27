@@ -1,0 +1,22 @@
+alias: Bilans
+description: ""
+trigger:
+  - platform: numeric_state
+    entity_id:
+      - sensor.energia_bilans_netto
+    above: 0.1
+    variables:
+      action: "on"
+  - platform: numeric_state
+    entity_id:
+      - sensor.energia_bilans_netto
+    below: -0.05
+    variables:
+      action: "off"
+condition: []
+action:
+  - service: switch.turn_{{ action }}
+    data: {}
+    target:
+      entity_id: switch.kotlownia_dogrzewacz_1
+mode: single

@@ -1,0 +1,118 @@
+- id: '1640780140257'
+  alias: Uruchomienie HA
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    target:
+      entity_id:
+      - input_boolean.startup_ha
+      - input_boolean.uruchamianie
+    data: {}
+  mode: single
+- id: '1654855999840'
+  alias: Tag Biuro_biurko jest skanowany
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: b9d4fe4c-9984-4c4c-96e5-998b5040ab2e
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id:
+      - switch.obecnosc_biuro
+      - switch.biuro_button
+      - switch.officelaptop
+  - service: tts.google_say
+    data:
+      entity_id: media_player.biuro
+      message: Dzień dobry, zaczynamy pracę
+  mode: single
+- id: '1654856107651'
+  alias: Tag Sypialnia_marcin jest skanowany
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 5736eb47-19e1-486d-95d1-b02cd2750f08
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.status_wieczorny
+  mode: single
+- id: '1667333709349'
+  alias: Audio Start
+  description: Włączenie Radia na głośniku
+  trigger:
+  - platform: state
+    entity_id: input_select.radio_station
+  condition: []
+  action:
+  - service: script.radio
+    data: {}
+  mode: single
+- id: '1667593921692'
+  alias: Audio Volume
+  description: Zmiana głośności
+  trigger:
+  - platform: state
+    entity_id:
+    - input_number.volume_radio
+  condition: []
+  action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id: '{% if is_state("input_select.audio_select", "Cały dom") %} media_player.home
+        {% elif is_state("input_select.audio_select", "Dzieci") %} media_player.kids
+        {% elif is_state("input_select.audio_select", "Amplituner") %} media_player.salon_music  {%
+        elif is_state("input_select.audio_select","Kuchnia") %} media_player.kuchnia  {%
+        elif is_state("input_select.audio_select", "Julia") %} media_player.julia  {%
+        elif is_state("input_select.audio_select", "Oliwia") %} media_player.oliwia  {%
+        elif is_state("input_select.audio_select", "Sypialnia") %} media_player.sypialnia  {%
+        elif is_state("input_select.audio_select","Biuro") %} media_player.biuro  {%
+        elif is_state("input_select.audio_select","Łazienka górna") %} media_player.lazienka_gorna  {%
+        endif %}'
+      volume_level: '{{  states.input_number.volume_radio.state  }}'
+  mode: single
+- id: '1667757404979'
+  alias: Tekst do powiedzenia
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_text.tekst_to_powiedzenia
+  condition: []
+  action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id: '{% if is_state("input_select.audio_select", "Cały dom") %} media_player.home
+        {% elif is_state("input_select.audio_select", "Dzieci") %} media_player.kids
+        {% elif is_state("input_select.audio_select", "Amplituner") %} media_player.salon_music  {%
+        elif is_state("input_select.audio_select", "Kuchnia") %} media_player.kuchnia  {%
+        elif is_state("input_select.audio_select", "Julia") %} media_player.julia  {%
+        elif is_state("input_select.audio_select", "Oliwia") %} media_player.oliwia  {%
+        elif is_state("input_select.audio_select", "Sypialnia") %} nmedia_player.sypialnia  {%
+        elif is_state("input_select.audio_select", "Biuro") %} media_player.biuro
+        {% elif is_state("input_select.audio_select", "Łazienka górna") %} media_player.lazienka_gorna
+        {% endif %}'
+      volume_level: '{{  states.input_number.volume_radio.state  }}'
+  - service: tts.google_say
+    data_template:
+      entity_id: '{% if is_state("input_select.audio_select", "Cały dom") %} media_player.home
+        {% elif is_state("input_select.audio_select", "Dzieci") %} media_player.kids
+        {% elif is_state("input_select.audio_select", "Amplituner") %} media_player.salon_music  {%
+        elif is_state("input_select.audio_select", "Kuchnia") %} media_player.kuchnia  {%
+        elif is_state("input_select.audio_select", "Julia") %} media_player.julia
+        {% elif is_state("input_select.audio_select", "Oliwia") %} media_player.oliwia  {%
+        elif is_state("input_select.audio_select", "Sypialnia") %} media_player.sypialnia  {%
+        elif is_state("input_select.audio_select", "Biuro") %} media_player.biuro  {%
+        elif is_state("input_select.audio_select","Łazienka górna") %} media_player.lazienka_gorna  {%
+        endif %}'
+      message: '{{ states.input_text.tekst_to_powiedzenia.state }}'
+  mode: single

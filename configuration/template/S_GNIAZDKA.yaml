@@ -1,0 +1,62 @@
+
+- sensor:
+
+########################## PIEKARNIK ########################## 
+  - name: piekarnik
+    state: >
+      {% if states('sensor.gniazdkokuchnia_piekarnik_power') > '2' %}
+        Włączony
+      {% else %}
+        Wyłączony
+      {% endif %}
+    icon: >
+     {% if states("sensor.gniazdkokuchnia_piekarnik_power") > "1" %}
+       mdi:stove
+     {% else %}
+       mdi:stove
+     {% endif %}
+
+########################## MIKROFALOWKA ########################## 
+  - name: mikrofalowka
+    state: >
+      {% if states('sensor.gniazdkokuchnia_mikrofalowka_power') > '1' %}
+        Włączona
+      {% else %}
+        Wyłączona
+      {% endif %}
+    icon: >
+     {% if states("sensor.gniazdkokuchnia_mikrofalowka_power") > '1' %}
+       mdi:microwave
+     {% else %}
+       mdi:microwave-off
+     {% endif %}
+
+########################## ZMYWARKA ########################## 
+  - name: zmywarka
+    state: >
+      {% if states('sensor.gniazdkokuchnia_zmywarka_power') > '1' %}
+        Trwa mycie...
+      {% else %}
+        Wyłączona
+      {% endif %}
+    icon: >
+     {% if states("sensor.gniazdkokuchnia_zmywarka_power") > '1' %}
+       mdi:dishwasher
+     {% else %}
+       mdi:dishwasher-off
+     {% endif %}
+
+########################## ŻELAZKO ########################## 
+  - name: zelazko
+    state: >
+      {% if states('sensor.gniazdkobiuro_zelazko_power') > '1' %}
+        Prasowanie
+      {% else %}
+        Wyłączone
+      {% endif %}
+    icon: >
+     {% if states("sensor.gniazdkobiuro_zelazko_power") > "1" %}
+       mdi:iron
+     {% else %}
+       mdi:iron-outline
+     {% endif %}

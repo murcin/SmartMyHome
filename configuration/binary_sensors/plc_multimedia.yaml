@@ -4,9 +4,9 @@
 - platform: ads
   name: Zezwolenie na media parter
   device_class: power
-  adsvar: P_Power_socket_p0.bRelease
+  adsvar: P_Gniazdka_P0.bRelease
   
 - platform: ads
   name: Zezwolenie na media pietro
   device_class: power
-  adsvar: P_Power_socket_p1.bRelease
+  adsvar: P_Gniazdka_P1.bRelease

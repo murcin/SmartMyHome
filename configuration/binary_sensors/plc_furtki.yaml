@@ -3,40 +3,47 @@
 
 - platform: ads
   name: List w skrzynce
-  adsvar: P_OUTSITE.bMAilBox_IsSomething
+  adsvar: P_BramyFurtki.SkrzynkaNaListy_List
 - platform: ads
-  name: MailBox_OpenOutSite
-  adsvar: GVL_Sensors.bMailBox_1
+  name: Skrzynka na listy zewn
+  device_class: opening
+  adsvar: GVL_Bramy_Furtki.HA_SkrzynkaNaList_IN
 - platform: ads
-  name: MailBox_OpenInSite
-  adsvar: GVL_Sensors.bMailBox_2
+  name: Skrzynka na listy wewn
+  device_class: opening
+  adsvar: GVL_Bramy_Furtki.HA_SkrzynkaNaList_OUT
     
 ######################## FURTKA WEJSCIOWA ######################## 
  
 - platform: ads
-  name: main_wicket
+  name: Furtka wejściowa
   device_class: door
-  adsvar: GVL_Sensors.bWicked1_CLO
+  adsvar: GVL_Bramy_Furtki.HA_FurtkaWejsciowa
 
 - platform: ads
-  name: main_wicket_Q
-  adsvar: P_OUTSITE.bWicket_Q_OPN
+  name: Furtka elektrozamek
+  device_class: lock
+  adsvar: P_BramyFurtki.Furtka_Elektrozamek
+- platform: ads
+  name: Furtka zezwolenie
+  device_class: lock
+  adsvar: P_BramyFurtki.Furtka_Zezwolenie
 
 ######################## FURTKA SMIECI ZEWNETRZNA ########################  
 
 - platform: ads
-  name: trash_wicket_1
+  name: Furtka śmieci zewnętrzna
   device_class: door
-  adsvar: GVL_Sensors.bWicked2_CLO
+  adsvar: GVL_Bramy_Furtki.HA_FurtkaSmieci_zewnetrzna
 
 ######################## FURTKA SMIECI WEWNETRZNA ########################  
 
 - platform: ads
-  name: trash_wicket_2
+  name: Furtka śmieci wewnętrzna
   device_class: door
-  adsvar: GVL_Sensors.bWicked3_CLO
+  adsvar: GVL_Bramy_Furtki.HA_FurtkaSmieci_wewnetrzna
 
 - platform: ads
-  name: trash_wicket_2_Q
-  adsvar: P_OUTSITE.bWicket2_Q_OPN
+  name: FurtkaSmieci zezwolenie
+  adsvar: P_BramyFurtki.HA_FurtkaSmieci_Zezwolenie
 
